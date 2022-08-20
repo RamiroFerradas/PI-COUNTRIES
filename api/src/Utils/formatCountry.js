@@ -13,18 +13,35 @@ const getCountryModel = (ele) => {
     officialName: ele.name.official,
     region: ele.region,
     timezones: ele.timezones,
+    activities: ele.activities,
   };
 };
 
-const getActivitiesModel = () => {
+const getActivitiesModel = (ele) => {
   return {
     name: ele.name,
+    id: ele.id,
     difficulty: ele.difficulty,
     duration: ele.duration,
     season: ele.season,
-    countries: ele.countries,
+    countries: ele.countries.map((ele) => ele.name),
   };
 };
+
+// let activity = (
+//   await Activity.findByPk(postActivity.id, {
+//     include: {
+//       model: Country,
+//       attributes: ["name"],
+//       through: {
+//         attributes: [], // limpia de axios
+//       },
+//     },
+//   })
+// ).dataValues;
+
+// activity.countries = activity.countries.map((ele) => ele.dataValues.name);
+// console.log(activity);
 
 module.exports = {
   getCountryModel,

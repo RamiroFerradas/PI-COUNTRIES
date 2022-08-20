@@ -7,6 +7,5 @@ const router = Router();
 
 router.get("/", getCountries);
 router.get("/:id", getCountriesId);
-// router.get("/name", getCountriesQuery);
 
 module.exports = router;

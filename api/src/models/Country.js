@@ -78,9 +78,9 @@ module.exports = (sequelize) => {
 
     //
     // Modify default timestamp titles
-    { timestamps: false },
+    { timestamps: false }
     //
     // Modify default table name
-    { tableName: "countries" }
+    // { tableName: "countries" }
   );
 };

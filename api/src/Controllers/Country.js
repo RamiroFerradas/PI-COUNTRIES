@@ -1,10 +1,17 @@
 const axios = require("axios");
+const e = require("express");
 const { Country, Activity } = require("../db");
 const { getCountryModel } = require("../Utils/formatCountry");
 
 const getCountries = async (req, res) => {
   let { name } = req.query;
-  const countriesDb = await Country.findAll();
+  const countriesDb = await Country.findAll({
+    include: {
+      model: Activity,
+      attributes: ["name"],
+    },
+  });
+
   try {
     if (countriesDb.length) {
       if (name) {
@@ -33,6 +40,7 @@ const getCountries = async (req, res) => {
       }
       const pedido = await axios(`https://restcountries.com/v3/all`);
       let mapApi = pedido.data.map((ele) => getCountryModel(ele));
+
       console.log("Countries traidos de api y guardados");
       res.json(await Country.bulkCreate(mapApi));
     }
