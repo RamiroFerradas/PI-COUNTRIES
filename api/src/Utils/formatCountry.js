@@ -1,4 +1,4 @@
-const getcountryModel = (ele) => {
+const getCountryModel = (ele) => {
   return {
     id: ele.cca3,
     name: ele.name.common,
@@ -16,6 +16,17 @@ const getcountryModel = (ele) => {
   };
 };
 
+const getActivitiesModel = () => {
+  return {
+    name: ele.name,
+    difficulty: ele.difficulty,
+    duration: ele.duration,
+    season: ele.season,
+    countries: ele.countries,
+  };
+};
+
 module.exports = {
-  getcountryModel,
+  getCountryModel,
+  getActivitiesModel,
 };

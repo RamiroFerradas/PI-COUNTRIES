@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // define country model
   //
   sequelize.define(
-    "Country",
+    "country",
     {
       // Required properties
       id: {
@@ -71,6 +71,11 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
     },
+    {
+      createdAt: false,
+      updatedAt: false,
+    },
+
     //
     // Modify default timestamp titles
     { timestamps: false },

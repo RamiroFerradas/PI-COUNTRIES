@@ -6,44 +6,38 @@ module.exports = (sequelize) => {
 
   // Required properties
   sequelize.define(
-    "Activity",
+    "activity",
     {
-      //   id: {
-      //     type: DataTypes.UUID,
-      //     defaultValue: DataTypes.UUIDV4,
-      //     primaryKey: true,
-      //     allowNull: false,
-      //     unique: true,
-      //   },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: "uniqueActivity",
       },
+
       difficulty: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: "uniqueActivity",
+
         validate: { min: 1, max: 5 },
       },
       duration: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        unique: "uniqueActivity",
+
         validate: { min: 1, max: 24 }, // Hours
       },
       season: {
         type: DataTypes.ENUM("summer", "autumn", "winter", "spring"),
         allowNull: false,
-        unique: "uniqueActivity",
       },
     },
     //
     // Modify default timestamp titles
-    { timestamps: false },
+    {
+      createdAt: false,
+      updatedAt: false,
+    }
     //
     // Modify default table name
-    { tableName: "activities" }
   );
 };
 
