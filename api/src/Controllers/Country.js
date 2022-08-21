@@ -57,7 +57,8 @@ const getCountriesId = async (req, res) => {
     });
     if (detail) {
       console.log("detail en db");
-      res.json(detail);
+
+      res.json(Array(detail));
     } else {
       let pedido = await axios.get(`https://restcountries.com/v3/name/${id}`);
       let limpieza = pedido.data.map((ele) => getCountryModel(ele));

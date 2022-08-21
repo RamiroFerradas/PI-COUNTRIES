@@ -2,10 +2,10 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 
 // componentes
-import Landing from "./Landing/Landing";
-import CountryDetail from "./Country Detail/CountryDetail";
-import ActivityCreate from "./Activity Create/ActivityCreate";
-import Home from "./Home/Home";
+import Landing from "./Components/Landing/Landing";
+import CountryDetail from "./Components/Country Detail/CountryDetail";
+import ActivityCreate from "./Components/Activity Create/ActivityCreate";
+import Home from "./Components/Home/Home";
 
 function App() {
   return (

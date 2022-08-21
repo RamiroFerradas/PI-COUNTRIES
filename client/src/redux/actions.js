@@ -8,6 +8,32 @@ export function getCountries() {
         type: "GET_COUNTRIES",
         payload: json,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error, "error en el pedido de todos los countries/actions");
+    }
+  };
+}
+
+export function searchCountrieGlobal(name) {
+  return {
+    type: "SEARCH_COUNTRIE_GLOBAL",
+    payload: name,
+  };
+}
+
+export function searchCountrie(name) {
+  return async function (dispatch) {
+    let json = (await axios(`http://localhost:3001/countries/${name}`)).data;
+    return dispatch({
+      type: "SEARCH_COUNTRIE",
+      payload: json,
+    });
+  };
+}
+
+export function setCurrentPage(payload) {
+  return {
+    type: "SET_CURRENT_PAGE",
+    payload: payload,
   };
 }

@@ -86,12 +86,12 @@ const updateActivity = async (req, res) => {
         season,
         countries,
       },
-      {
-        include: {
-          model: Country,
-          attributes: ["name"],
-        },
-      },
+      // {
+      //   include: {
+      //     model: Country,
+      //     attributes: ["name"],
+      //   },
+      // },
       {
         where: {
           id: id,
