@@ -52,13 +52,13 @@ const getCountries = async (req, res) => {
 const getCountriesId = async (req, res) => {
   let { id } = req.params;
   try {
-    const detail = await Country.findByPk(id.toUpperCase(), {
+    const detail = await Country.findByPk(id, {
       include: [Activity],
     });
     if (detail) {
       console.log("detail en db");
 
-      res.json(Array(detail));
+      return res.send(detail);
     } else {
       let pedido = await axios.get(`https://restcountries.com/v3/name/${id}`);
       let limpieza = pedido.data.map((ele) => getCountryModel(ele));

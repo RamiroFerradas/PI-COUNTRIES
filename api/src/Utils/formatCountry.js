@@ -8,12 +8,14 @@ const getCountryModel = (ele) => {
     subregion: ele.subregion,
     area: ele.area,
     population: ele.population,
-    maps: ele.maps.googleMaps,
+    maps: ele.maps.googleMaps
+      ? ele.maps.googleMaps
+      : `https://www.google.com/maps/place/${ele.name.common}`,
     unMember: ele.unMember,
     officialName: ele.name.official,
     region: ele.region,
     timezones: ele.timezones,
-    activities: ele.activities,
+    activities: ele.activities.map((ele) => ele.name),
   };
 };
 

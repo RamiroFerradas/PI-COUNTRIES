@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getCountries } from "../../redux/actions";
+import { getCountries } from "../../redux/actions/countries";
+
 import Card from "../Card/Card";
+import Navbar from "../Navbar/Navbar";
 import Paginado from "../Paginado/Paginado";
 import Searchbar from "../Searchbar/Searchbar";
 
@@ -10,6 +12,7 @@ export default function Home() {
   let dispatch = useDispatch();
   let allCountries = useSelector((state) => state.countries);
   let currentPage = useSelector((state) => state.page);
+  // const [order, setOrder] = useState("");
 
   useEffect(() => {
     dispatch(getCountries());
@@ -23,12 +26,11 @@ export default function Home() {
     indexOfFirstCountrie,
     indexOfLastCountrie
   );
-  console.log(currentCountries, "current countries");
 
   return (
     <div>
       <div>
-        <Searchbar />
+        <Navbar />
       </div>
       <div>
         <Paginado allCountries={allCountries.length} />

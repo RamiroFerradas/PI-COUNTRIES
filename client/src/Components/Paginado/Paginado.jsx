@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
-import { setCurrentPage } from "../../redux/actions";
+import { setCurrentPage } from "../../redux/actions/actions";
 
 export default function Paginado({ allCountries }) {
   let dispatch = useDispatch();
