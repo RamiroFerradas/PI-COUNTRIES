@@ -44,13 +44,16 @@ export function searchCountrieGlobal(name) {
 export function searchCountrie(name) {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/countries/${name}`)).data;
+      let json = (await axios(`http://localhost:3001/countries?name=${name}`))
+        .data;
+
       return dispatch({
         type: "SEARCH_COUNTRIE",
         payload: json,
       });
     } catch (error) {
       console.error(error, "Error en la busqueda: actions");
+      alert(error.request.response);
     }
   };
 }

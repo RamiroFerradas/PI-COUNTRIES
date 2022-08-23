@@ -15,8 +15,12 @@ export default function Home() {
   // const [order, setOrder] = useState("");
 
   useEffect(() => {
-    dispatch(getCountries());
-  }, [dispatch]);
+    if (allCountries.length) {
+      return allCountries;
+    } else {
+      dispatch(getCountries());
+    }
+  }, [allCountries, dispatch]);
 
   let [countriesPerPage, setCountriesPerPage] = useState(10);
   const indexOfLastCountrie = countriesPerPage * currentPage;
@@ -35,15 +39,21 @@ export default function Home() {
       <div>
         <Paginado allCountries={allCountries.length} />
       </div>
-      {currentCountries?.map((ele) => {
-        return (
-          <div key={ele.id}>
+      <div>
+        {currentCountries?.map((ele) => {
+          return (
             <Link to={`/countries/${ele.id}`}>
-              <Card name={ele.name} flag={ele.flag} continent={ele.continent} />
+              <div key={ele.id}>
+                <Card
+                  name={ele.name}
+                  flag={ele.flag}
+                  continent={ele.continent}
+                />
+              </div>
             </Link>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function FiltroActividadTuristica() {
     // console.log(e.target.value);
     // dispatch(filterActivity(e.target.value));
     dispatch(filterActivities(e.target.value));
-    setCurrentPage(1);
+    dispatch(setCurrentPage(1));
   };
 
   return (

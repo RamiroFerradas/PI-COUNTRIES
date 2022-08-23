@@ -47,29 +47,6 @@ export default function rootReducer(state = initialState, action) {
         page: action.payload,
       };
 
-    // case "FILTER_ACTIVITIES":
-    //   let filtActivitie = state.countries?.filter((ele) => {
-    //     if (action.payload === "default") {
-    //       return {
-    //         ...state,
-    //         countries: [...state.allCountries],
-    //       };
-    //     } else {
-    //       console.log(ele.activities, "HOLISS ACA ESTOY");
-
-    //       return ele.activities[0].name;
-    //     }
-    //   });
-    //   // console.log(state.activities.map((ele) => ele.countries));
-    //   // console.log(state.countries, "STATE COUNTRIES");
-    //   // console.log(action.payload, "PAYLOAD");
-    //   // console.log(filtActivitie, "FILTROO");
-
-    //   return {
-    //     ...state,
-    //     countries: filtActivitie,
-    //     page: 1,
-    //   };
     case "ACTIVITY_BY_NAME":
       let filtA = state.activities.filter((ele) =>
         ele.countries.map((ele = ele.name))
@@ -86,12 +63,10 @@ export default function rootReducer(state = initialState, action) {
         action.payload === "default"
           ? allCountries2
           : allCountries2.filter(
-              (ele) =>
-                // console.log((ele) => console.log(ele))
-                ele.activities.length
+              // (ele) => console.log(ele.activities[0].name, "PAYLOAD")
+              (ele) => ele.activities[0]?.name.includes(action.payload)
             );
 
-      console.log(activitiesFiltered, "HOLAAAAAAAA");
       return {
         ...state,
         countries: activitiesFiltered,
@@ -160,6 +135,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         details: action.payload,
+      };
+    case "CLEAN_CACHE":
+      return {
+        ...state,
+        details: [],
       };
     default:
       return state;

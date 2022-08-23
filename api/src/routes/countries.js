@@ -1,11 +1,11 @@
 const { Router } = require("express");
 
-const { getCountries } = require("../Controllers/Country");
-const { getCountriesId } = require("../Controllers/Country");
+const { getCountriesFinal } = require("../Controllers/Country");
+const { getCountriesIdParams } = require("../Controllers/Country");
 
 const router = Router();
 
-router.get("/", getCountries);
-router.get("/:id", getCountriesId);
+router.get("/", getCountriesFinal);
+router.get("/:id", getCountriesIdParams);
 
 module.exports = router;

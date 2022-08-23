@@ -8,11 +8,10 @@ export default function Paginado({ allCountries }) {
   let dispatch = useDispatch();
   let currentPage = useSelector((state) => state.page);
   let pageNumbers = [];
-  let slicePage = pageNumbers.slice(5, 10);
   let [countriesPerPage, setCountriesPerPage] = useState(10);
   let totalPages = Math.ceil(allCountries / countriesPerPage);
 
-  for (let i = 1; i < totalPages; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
 

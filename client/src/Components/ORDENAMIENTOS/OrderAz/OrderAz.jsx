@@ -10,7 +10,7 @@ export default function OrderAz() {
     e.preventDefault();
     dispatch(OrderByAz(e.target.value));
     console.log(e.target.value);
-    setCurrentPage(1);
+    dispatch(setCurrentPage(1));
   };
 
   return (

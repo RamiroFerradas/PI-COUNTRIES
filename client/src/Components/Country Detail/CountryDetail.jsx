@@ -1,10 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getCountriesDetails } from "../../redux/actions/countries";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { cleanCache } from "../../redux/actions/actions";
 
 export default function CountryDetail() {
+  let navigate = useNavigate();
   let dispatch = useDispatch();
   let { id } = useParams();
 
@@ -12,12 +15,26 @@ export default function CountryDetail() {
     dispatch(getCountriesDetails(id));
   }, [dispatch, id]);
 
+  const cleanAndBack = (e) => {
+    e.preventDefault();
+    navigate("/home");
+    dispatch(cleanCache());
+  };
+
   let details = useSelector((state) => state.details);
 
   console.log(details, "details");
 
   return (
     <div>
+      <div>
+        <button onClick={(e) => cleanAndBack(e)}>
+          <div>
+            <MdArrowBackIosNew />
+          </div>
+        </button>
+      </div>
+
       <div>
         <h1>Name: {details.name}</h1>
         <img
@@ -29,34 +46,34 @@ export default function CountryDetail() {
         <p>Code: {details.id}</p>
         <p>Capital: {details.capital}</p>
         <p>Subregion: {details.subregion}</p>
-        <p>Area: {details.area}</p>
+        <p>Area: {details.area} m2</p>
         <p>Population: {details.population}</p>
 
         <ul>
           <h4>Activities: </h4>
           {details.activities?.map((ele) => {
             return (
-              <div>
+              <div key={ele.id}>
                 <li>{ele.name}</li>
                 <p>- Difficulty: {ele.difficulty}</p>
                 <p>- Duration: {ele.duration}</p>
                 <p>- Season: {ele.season}</p>
-
-                {/* <p>- Countries: {console.log(ele.countries)}</p> */}
               </div>
             );
           })}
         </ul>
-        {/* <iframe
-          src={details.maps}
-          frameborder="2px"
-          width="200px"
-          height="200px"
-          title={details.maps}
-        ></iframe> */}
+        <div>
+          <a
+            href={details.maps}
+            rel="noreferrer"
+            target="_blank"
+            referencepolicy="no-referrer-when-downgrade"
+          >
+            MAP
+          </a>
+        </div>
       </div>
 
-      {/* <iframe src={details.maps}></iframe> */}
       <div>
         <p>{}</p>
       </div>

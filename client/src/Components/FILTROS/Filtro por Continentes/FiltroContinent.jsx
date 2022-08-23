@@ -14,6 +14,7 @@ export default function FiltroContinentAz() {
   const handleContinent = (e) => {
     e.preventDefault();
     dispatch(filterContinent(e.target.value));
+
     setCurrentPage(1);
   };
   return (

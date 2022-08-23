@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/actions/actions";
 import { searchCountrie } from "../../redux/actions/countries";
 
@@ -15,8 +14,9 @@ export default function Searchbar() {
   };
 
   const handleChange = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setName(e.target.value.toLowerCase());
+    console.log(e.target.value);
     dispatch(searchCountrie(name));
     setCurrentPage(1);
   };

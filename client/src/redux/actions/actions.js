@@ -4,3 +4,10 @@ export function setCurrentPage(payload) {
     payload: payload,
   };
 }
+
+export function cleanCache(payload) {
+  return {
+    type: "CLEAN_CACHE",
+    payload,
+  };
+}
