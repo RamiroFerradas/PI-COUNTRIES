@@ -15,7 +15,7 @@ export default function OrderAz() {
 
   return (
     <div>
-      <p>Alphabetical Order</p>
+      <label>Alphabetical Order</label>
       <select name="" id="" onChange={(e) => handlerOrderAz(e)}>
         <option value="default">All</option>
         <option value="asc">A-Z</option>

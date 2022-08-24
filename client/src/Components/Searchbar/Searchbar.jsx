@@ -24,7 +24,7 @@ export default function Searchbar() {
   return (
     <form onSubmit={(e) => hanldeSubmit(e)}>
       <input
-        type="text"
+        type="search"
         placeholder="Search Countrie . . . "
         onChange={(e) => handleChange(e)}
       />

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { getCountries } from "../../redux/actions/countries";
 
 import Card from "../Card/Card";
-import Navbar from "../Navbar/Navbar";
+import NavbarFiltOrd from "../Navbar/NavbarFiltOrd";
+import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
+
 import Paginado from "../Paginado/Paginado";
-import Searchbar from "../Searchbar/Searchbar";
 
 export default function Home() {
   let dispatch = useDispatch();
@@ -22,7 +23,8 @@ export default function Home() {
     }
   }, [allCountries, dispatch]);
 
-  let [countriesPerPage, setCountriesPerPage] = useState(10);
+  // let [countriesPerPage, setCountriesPerPage] = useState(10);
+  let countriesPerPage = useSelector((state) => state.countriesPerPage);
   const indexOfLastCountrie = countriesPerPage * currentPage;
   const indexOfFirstCountrie = indexOfLastCountrie - countriesPerPage;
 
@@ -34,25 +36,28 @@ export default function Home() {
   return (
     <div>
       <div>
-        <Navbar />
+        <NavbarPrincipal />
       </div>
       <div>
-        <Paginado allCountries={allCountries.length} />
+        <NavbarFiltOrd />
       </div>
       <div>
         {currentCountries?.map((ele) => {
           return (
-            <Link to={`/countries/${ele.id}`}>
-              <div key={ele.id}>
+            <div key={ele.id}>
+              <Link to={`/countries/${ele.id}`}>
                 <Card
                   name={ele.name}
                   flag={ele.flag}
                   continent={ele.continent}
                 />
-              </div>
-            </Link>
+              </Link>
+            </div>
           );
         })}
+      </div>
+      <div>
+        <Paginado allCountries={allCountries.length} />
       </div>
     </div>
   );

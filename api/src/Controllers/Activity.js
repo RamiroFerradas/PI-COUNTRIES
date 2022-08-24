@@ -39,22 +39,21 @@ const detailActivity = async (req, res) => {
 
 const postActivty = async (req, res) => {
   let { name, difficulty, duration, season, countries } = req.body;
+  console.log(name, difficulty, duration, season, countries);
   try {
     const postActivity = await Activity.create({
       name,
       difficulty,
       duration,
       season,
-      countries,
     });
 
     await postActivity.addCountry(countries);
-
     res.send("actividad creada correctamente!");
 
     // res.status(200).send(postActivity);
   } catch (error) {
-    console.log(error.message, "error en el post");
+    console.error(error.message, "error en el post");
   }
 };
 

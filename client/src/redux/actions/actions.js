@@ -11,3 +11,10 @@ export function cleanCache(payload) {
     payload,
   };
 }
+
+export function countriesPerPage(payload) {
+  return {
+    type: "COUNTRIES_PER_PAGE",
+    payload,
+  };
+}

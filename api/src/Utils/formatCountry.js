@@ -16,6 +16,7 @@ const getCountryModel = (ele) => {
     region: ele.region,
     timezones: ele.timezones,
     activities: ele.activities?.map((ele) => ele.name),
+    latlng: ele.latlng.map((ele) => ele),
   };
 };
 

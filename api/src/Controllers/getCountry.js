@@ -5,29 +5,44 @@ const { getCountryModel } = require("../Utils/formatCountry");
 const { Op } = require("sequelize");
 
 const getCountries = async () => {
-  const countriesDb = await Country.findAll({
-    include: {
-      model: Activity,
-      attributes: ["name"],
-      through: {
-        attributes: [],
-      },
-    },
-  });
-
   try {
+    const countriesDb = (
+      await Country.findAll({
+        include: {
+          model: Activity,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      })
+    ).map((ele) => ele.dataValues);
+
+    // countriesDb.forEach((ele) => {
+    //   if (ele.activities.length) {
+    //     ele.activities.forEach((ele) => (ele = ele.dataValues));
+    //   }
+    // });
+
+    // let algo = countriesDb.map((ele) => {
+    //   if (ele.name === "Argentina" || ele.name === "Brazil")
+    //     return ele.activities;
+    // });
+
+    // console.log(countriesDb.json);
     if (countriesDb.length) {
       console.log("Countries traidos de la db!");
       return countriesDb;
     } else {
-      const pedido = await axios(`https://restcountries.com/v3/all`);
-      let mapApi = pedido.data.map((ele) => getCountryModel(ele));
+      const pedido = (await axios(`https://restcountries.com/v3/all`)).data.map(
+        (ele) => getCountryModel(ele)
+      );
 
       console.log("Countries traidos de api y guardados");
-      return await Country.bulkCreate(mapApi);
+      return Country.bulkCreate(pedido);
     }
   } catch (error) {
-    console.log(error.message, "error en en el pedido");
+    console.error(error.message, "error en en el pedido");
   }
 };
 

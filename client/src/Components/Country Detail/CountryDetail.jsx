@@ -1,10 +1,13 @@
 import React from "react";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getCountriesDetails } from "../../redux/actions/countries";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { cleanCache } from "../../redux/actions/actions";
+import MapComponent from "./Map/MyComponent";
+import Navbar from "../Navbar/NavbarFiltOrd";
 
 export default function CountryDetail() {
   let navigate = useNavigate();
@@ -23,7 +26,7 @@ export default function CountryDetail() {
 
   let details = useSelector((state) => state.details);
 
-  console.log(details, "details");
+  // console.log(details.latlng, "details");
 
   return (
     <div>
@@ -33,6 +36,9 @@ export default function CountryDetail() {
             <MdArrowBackIosNew />
           </div>
         </button>
+      </div>
+      <div>
+        <Navbar />
       </div>
 
       <div>
@@ -61,22 +67,15 @@ export default function CountryDetail() {
               </div>
             );
           })}
+          <div></div>
         </ul>
-        <div>
-          <a
-            href={details.maps}
-            rel="noreferrer"
-            target="_blank"
-            referencepolicy="no-referrer-when-downgrade"
-          >
-            MAP
-          </a>
-        </div>
       </div>
-
-      <div>
-        <p>{}</p>
-      </div>
+      {
+        <MapComponent
+          lat={details.latlng && Number(details.latlng[0])}
+          lng={details.latlng && Number(details.latlng[1])}
+        />
+      }
     </div>
   );
 }

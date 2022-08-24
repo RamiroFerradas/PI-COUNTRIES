@@ -18,6 +18,12 @@ export function filterContinent(payload) {
     payload: payload,
   };
 }
+export function filters(payload) {
+  return {
+    type: "FILTERS",
+    payload: payload,
+  };
+}
 
 export function filterActivity(name) {
   return async function (dispatch) {

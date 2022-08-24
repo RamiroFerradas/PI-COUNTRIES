@@ -1,10 +1,11 @@
 const initialState = {
   countries: [],
   allCountries: [],
-  allCountriesAux: [],
+  filtros: [],
   activities: [],
   details: [],
   page: 1,
+  countriesPerPage: 10,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -14,7 +15,8 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         countries: action.payload,
         allCountries: action.payload,
-        allCountriesAux: action.payload,
+        filtros: action.payload,
+        // filtros: action.payload,
         page: 1,
       };
 
@@ -57,35 +59,62 @@ export default function rootReducer(state = initialState, action) {
         Countries: filtB,
       };
 
+    // case "FILTERS":
+    //   let allCountries2 = [...state.allCountries];
+    //   console.log(action.payload, "ACTION.PAYLOAD");
+    //   let filter = allCountries2
+    //     .filter((ele) => ele.activities.length)
+    //     .filter((ele) =>
+    //       ele.activities
+    //         .map((ele) => Object.values(ele)[0])
+    //         .includes(action.payload)
+    //     );
+
+    //   console.log(filter, "ACTIVITIES");
+
+    //   const countriesFiltered = allCountries2.filter(
+    //     (ele) => ele.continent === action.payload
+    //   );
+    //   allCountries2 = countriesFiltered;
+    //   console.log(allCountries2, "aca toy");
+
+    //   return {
+    //     ...state,
+    //     countries: allCountries2,
+    //   };
+
     case "FILTER_ACTIVITIE":
-      const allCountries2 = state.allCountries;
-      const activitiesFiltered =
-        action.payload === "default"
-          ? allCountries2
-          : allCountries2.filter(
-              // (ele) => console.log(ele.activities[0].name, "PAYLOAD")
-              (ele) => ele.activities[0]?.name.includes(action.payload)
-            );
+      let allCountries2 = state.allCountries;
+
+      let filter = allCountries2
+        .filter((ele) => ele.activities.length)
+        .filter((ele) =>
+          ele.activities
+            .map((ele) => Object.values(ele)[0])
+            .includes(action.payload)
+        );
+      // allCountries2 = filter;
 
       return {
         ...state,
-        countries: activitiesFiltered,
+        countries: action.payload === "default" ? allCountries2 : filter,
       };
 
     case "FILTER_CONTINENT":
-      const allCountries3 = state.allCountries;
-      console.log(allCountries3, "cntinent");
-      const countriesFiltered =
-        action.payload === "default"
-          ? allCountries3
-          : allCountries3.filter((ele) => ele.continent === action.payload);
+      let allCountries3 = state.allCountries;
+
+      const countriesFiltered = allCountries3.filter(
+        (ele) => ele.continent === action.payload
+      );
+
       return {
         ...state,
-        countries: countriesFiltered,
+        countries:
+          action.payload === "default" ? allCountries3 : countriesFiltered,
       };
 
     case "ORDER_AZ":
-      let currentCountries = [...state.allCountriesAux];
+      let currentCountries = [...state.allCountries];
       if (action.payload === "default") {
         return {
           ...state,
@@ -109,7 +138,7 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case "FILTER_POPULATION":
-      let currentCountries2 = [...state.allCountriesAux];
+      let currentCountries2 = [...state.allCountries];
       if (action.payload === "default") {
         return {
           ...state,
@@ -141,6 +170,12 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         details: [],
       };
+    case "COUNTRIES_PER_PAGE":
+      return {
+        ...state,
+        countriesPerPage: action.payload,
+      };
+
     default:
       return state;
   }

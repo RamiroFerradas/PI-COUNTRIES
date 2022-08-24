@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import CantidadDePaginas from "../Cantidad De Paginas/CantidadDePaginas";
 import Filtros from "../FILTROS/Filtros";
 import Ordenamientos from "../ORDENAMIENTOS/Ordenamientos";
-import Searchbar from "../Searchbar/Searchbar";
 
-export default function Navbar() {
+export default function NavbarPrincipal() {
   return (
     <div>
       <div>
@@ -13,7 +14,7 @@ export default function Navbar() {
         <Ordenamientos />
       </div>
       <div>
-        <Searchbar />
+        <CantidadDePaginas />
       </div>
     </div>
   );

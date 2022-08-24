@@ -3,22 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions/actions";
 import { filterContinent } from "../../../redux/actions/filtros";
 
-export default function FiltroContinentAz() {
+export default function FiltroContinentAz({ handleContinent }) {
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.allCountries);
   const continent = countries.map((ele) => ele.continent);
   const set = Array.from(new Set(continent));
 
-  // const arr = Array.from(set);
-  // console.log(set, "SOY EL FILTRO DE CONTINENTS");
-  const handleContinent = (e) => {
-    e.preventDefault();
-    dispatch(filterContinent(e.target.value));
-
-    setCurrentPage(1);
-  };
   return (
     <div>
+      <label htmlFor="">Filter By Continent</label>
       <select name="" id="" onChange={(e) => handleContinent(e)}>
         <option value="default">All</option>
         {set?.map((ele) => {

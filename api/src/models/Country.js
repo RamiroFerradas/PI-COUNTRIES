@@ -66,6 +66,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      latlng: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
+      },
       timezones: {
         type: DataTypes.STRING,
         allowNull: false,
