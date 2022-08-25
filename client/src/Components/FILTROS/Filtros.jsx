@@ -1,33 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../redux/actions/actions";
-import { filterActivities, filterContinent } from "../../redux/actions/filtros";
-import FiltroActividadTuristica from "./Filtro Axtividad Turistica/FiltroActividadTuristica";
-import FiltroContinentAz from "./Filtro por Continentes/FiltroContinent";
+import { getActivities } from "../../redux/actions/activities";
+import { filters } from "../../redux/actions/filtros";
 
 export default function Filtros() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getActivities());
+  }, [dispatch]);
+
+  const countries = useSelector((state) => state.countries);
+
+  const continent = countries.map((ele) => ele.continent);
+  const set = Array.from(new Set(continent));
+
+  const activities = useSelector((state) => state.activities);
+  let activitiesMap = activities.map((ele) => ele.name);
+  const activitiesSet = Array.from(new Set(activitiesMap));
+
+  const [actualFilter, setActualFilter] = useState({
+    continent: "",
+    activities: "",
+  });
+
+  // const a = actualFilter;
 
   const handleContinent = (e) => {
     e.preventDefault();
-    dispatch(filterContinent(e.target.value));
-    setCurrentPage(1);
-  };
-  const handleActivity = (e) => {
-    e.preventDefault();
-    dispatch(filterActivities(e.target.value));
+
+    setActualFilter((state) => {
+      return { ...state, continent: e.target.value };
+    });
     dispatch(setCurrentPage(1));
   };
+
+  const handleActivity = (e) => {
+    e.preventDefault();
+
+    setActualFilter((state) => {
+      return { ...state, activities: e.target.value };
+    });
+    dispatch(setCurrentPage(1));
+  };
+
+  useEffect(() => {
+    dispatch(filters(actualFilter));
+  }, [dispatch, actualFilter]);
 
   return (
     <div>
       <div>
-        <FiltroContinentAz handleContinent={handleContinent} />
+        <label htmlFor="">Filter By Activities</label>
+        <select onChange={(e) => handleActivity(e)}>
+          <option value="default">Default</option>
+          {activitiesSet?.map((ele) => {
+            return (
+              <option key={ele} value={ele}>
+                {ele}
+              </option>
+            );
+          })}
+        </select>
       </div>
       <div>
-        <FiltroActividadTuristica handleActivity={handleActivity} />
+        <label htmlFor="">Filter By Continent</label>
+        <select name="" id="" onChange={(e) => handleContinent(e)}>
+          <option value="default">Default</option>
+          {set?.map((ele) => {
+            return (
+              <option key={ele} value={ele}>
+                {ele}
+              </option>
+            );
+          })}
+        </select>
       </div>
     </div>
   );
+
+  // return (
+  //   <div>
+  //     <div>
+  //       <FiltroContinentAz handleContinent={handleContinent} />
+  //     </div>
+  //     <div>
+  //       <FiltroActividadTuristica handleActivity={handleActivity} />
+  //     </div>
+  //   </div>
+  // );
 }

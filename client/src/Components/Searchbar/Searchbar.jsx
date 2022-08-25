@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../redux/actions/actions";
 import { searchCountrie } from "../../redux/actions/countries";
 
 export default function Searchbar() {
   const dispatch = useDispatch();
+
   const [name, setName] = useState("");
 
   const hanldeSubmit = (e) => {
