@@ -15,13 +15,12 @@ export default function Home() {
   let currentPage = useSelector((state) => state.page);
 
   useEffect(() => {
-    dispatch(getActivities());
-    if (allCountries.length) {
-      return allCountries;
-    } else {
-      dispatch(getCountries());
-    }
-  }, [allCountries, dispatch]);
+    // if (allCountries.length) {
+    //   return allCountries;
+    // } else {
+    dispatch(getCountries());
+    // }
+  }, [dispatch]);
 
   let countriesPerPage = useSelector((state) => state.countriesPerPage);
   const indexOfLastCountrie = countriesPerPage * currentPage;

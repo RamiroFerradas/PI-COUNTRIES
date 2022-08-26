@@ -14,6 +14,7 @@ import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 
 import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
+import SelectorCountries from "./Selector Countries/SelectorCountries";
 
 export default function ActivityCreate() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function ActivityCreate() {
     dispatch(getCountries());
   }, [dispatch]);
 
-  const activities = useSelector((state) => state.activities);
+  let activities = useSelector((state) => state.activities);
 
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
@@ -34,7 +35,6 @@ export default function ActivityCreate() {
     difficulty: 0,
     duration: 0,
     season: [],
-
     countriesName: [],
     flag: [],
     countries: [],
@@ -80,12 +80,6 @@ export default function ActivityCreate() {
     }
   };
 
-  const handleSearchCountries = (e) => {
-    setName(e.target.value.toLowerCase());
-    dispatch(searchCountrieGlobal(name));
-    // dispatch(setCurrentPage(1));
-  };
-
   const handleChange = (e) => {
     e.preventDefault();
     dispatch(
@@ -118,11 +112,12 @@ export default function ActivityCreate() {
     if (
       activities.find(
         (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
-      ) ||
-      console.log(
-        activities.find((ele) => ele.countries),
-        "caca"
       )
+      // ||
+      // console.log(
+      //   activities.find((ele) => ele.countries),
+      //   "caca"
+      // )
     )
       errors.name =
         "Ya existe una actividad con este nombre en ese pais, escoge otra!";
@@ -180,7 +175,7 @@ export default function ActivityCreate() {
       input.duration.length > 24 ||
       input.season.length < 1 ||
       input.season.length > 4 ||
-      input.countriesName.length < 1 ||
+      input.countries.length ||
       activities.find(
         (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
       )
@@ -229,12 +224,14 @@ export default function ActivityCreate() {
           <label htmlFor="">Difficulty: </label>
           <input
             type="range"
-            max="10"
+            max="5"
             onChange={(e) => handleChangeInput(e)}
             value={input.difficulty}
             name="difficulty"
           />
+
           <p>{input.difficulty}</p>
+
           <div className={styles.errores}>
             {errors.difficulty && <p>⚠ {errors.difficulty}</p>}
           </div>
@@ -310,15 +307,19 @@ export default function ActivityCreate() {
       </div>
       <div>
         <label htmlFor="">Countrie: </label>
-        <form>
-          <input
-            type="search"
-            placeholder="Search Countrie . . . "
-            onChange={(e) => handleSearchCountries(e)}
-          />
-        </form>
         <div className={styles.errores}>
           {errors.countries && <p>⚠ {errors.countries}</p>}
+        </div>
+        <div>
+          <h3>Countries Selected:</h3>
+          <SelectorCountries
+            validate={validate}
+            setErrors={setErrors}
+            input={input}
+            setInput={setInput}
+            name={name}
+            setName={setName}
+          />
         </div>
         <div>
           <SearchBarActivities
@@ -327,6 +328,7 @@ export default function ActivityCreate() {
             input={input}
             setInput={setInput}
             name={name}
+            setName={setName}
           />
         </div>
       </div>
@@ -352,6 +354,7 @@ export default function ActivityCreate() {
             </svg>
           </div>
         </button>
+        {/* <button onClick={(e) => handlerClear(e)}>RESET</button> */}
       </div>
     </div>
   );

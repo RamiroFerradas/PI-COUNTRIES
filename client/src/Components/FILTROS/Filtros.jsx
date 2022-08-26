@@ -15,6 +15,7 @@ export default function Filtros() {
   });
 
   useEffect(() => {
+    dispatch(getActivities());
     dispatch(filters(actualFilter));
   }, [dispatch, actualFilter]);
 

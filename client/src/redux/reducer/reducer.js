@@ -90,16 +90,12 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case "ADD_COUNTRIE":
-      let selector = [...state.allCountries].filter((e) =>
-        e.name.includes(action.payload)
-      );
-
+      console.log(action.payload, "HOLAAA");
       // let addCountrie = state.countries.push(selector);
 
-      console.log(selector, "HOLAAA");
       return {
         ...state,
-        countries: [...state.countries, selector],
+        countries: [...state.countries, action.payload],
       };
 
     case "ORDER_AZ":

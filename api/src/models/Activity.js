@@ -18,14 +18,20 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         // unique: "uniqueActivity",
-        validate: { min: 1, max: 5 },
+        validate: {
+          min: 1,
+          max: 5,
+        },
       },
 
       duration: {
         type: DataTypes.INTEGER,
         allowNull: false,
         // unique: "uniqueActivity",
-        validate: { min: 1, max: 24 }, // Hours
+        validate: {
+          min: 1,
+          max: 24,
+        }, // Hours
       },
 
       season: {

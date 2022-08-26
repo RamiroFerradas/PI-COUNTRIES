@@ -10,7 +10,6 @@ export default function FiltroContinent({ setActualFilter }) {
 
   const handleContinent = (e) => {
     e.preventDefault();
-
     setActualFilter((state) => {
       return {
         ...state,
