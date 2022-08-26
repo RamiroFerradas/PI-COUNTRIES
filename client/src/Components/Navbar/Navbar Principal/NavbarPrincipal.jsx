@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Searchbar from "../../Searchbar/Searchbar";
 import style from "../Navbar Principal/NavbarPrincipal.module.css";
 
-export default function NavbarFiltOrd() {
+export default function NavbarPrincipal() {
   // const listRef = useRef(null);
 
   // const handleOnClick = () => {
@@ -20,9 +20,6 @@ export default function NavbarFiltOrd() {
         <button className={style.btn}>
           <NavLink to="/activities">ACTIVITIES</NavLink>
         </button>
-      </div>
-      <div>
-        <Searchbar />
       </div>
     </div>
   );

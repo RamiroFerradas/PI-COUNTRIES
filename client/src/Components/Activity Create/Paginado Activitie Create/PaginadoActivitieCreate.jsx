@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
-import { setCurrentPage } from "../../redux/actions/actions";
+import { setCurrentPage } from "../../../redux/actions/actions";
 
-export default function Paginado({ allCountries }) {
+export default function PaginadoActivitieCreate({ allCountries }) {
   let dispatch = useDispatch();
   let currentPage = useSelector((state) => state.page);
   let countriesPerPage = useSelector((state) => state.countriesPerPage);
@@ -28,7 +27,7 @@ export default function Paginado({ allCountries }) {
         <GiPreviousButton />
       </button>
 
-      {pageNumbers?.map((num) => {
+      {/* {pageNumbers?.map((num) => {
         return (
           <button
             key={num}
@@ -38,7 +37,7 @@ export default function Paginado({ allCountries }) {
             {num}
           </button>
         );
-      })}
+      })} */}
 
       <button
         // className={

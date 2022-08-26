@@ -23,10 +23,12 @@ export default function rootReducer(state = initialState, action) {
         activities: action.payload,
         page: 1,
       };
+
     case "SEARCH_COUNTRIE_GLOBAL":
-      const filt = state.countries.filter((ele) =>
+      const filt = [...state.allCountries].filter((ele) =>
         ele.name.toLowerCase().includes(action.payload.toLowerCase())
       );
+
       return {
         ...state,
         countries: filt,
@@ -75,6 +77,29 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         countries: allCountries2,
+      };
+
+    case "LIMPIO_COUNTRIE":
+      let filtroCreate = [...state.countries].filter(
+        (ele) => ele.name !== action.payload
+      );
+
+      return {
+        ...state,
+        countries: filtroCreate,
+      };
+
+    case "ADD_COUNTRIE":
+      let selector = [...state.allCountries].filter((e) =>
+        e.name.includes(action.payload)
+      );
+
+      // let addCountrie = state.countries.push(selector);
+
+      console.log(selector, "HOLAAA");
+      return {
+        ...state,
+        countries: [...state.countries, selector],
       };
 
     case "ORDER_AZ":
@@ -138,6 +163,15 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         countriesPerPage: action.payload,
+      };
+    case "POST_COUNTRIE":
+      return {
+        ...state,
+        countries: [...state.countries, action.payload],
+      };
+    case "DELETE_ACTIVITIES":
+      return {
+        ...state,
       };
 
     default:

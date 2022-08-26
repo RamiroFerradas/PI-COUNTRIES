@@ -18,3 +18,15 @@ export function countriesPerPage(payload) {
     payload,
   };
 }
+export function limpioUnCountrie(payload) {
+  return {
+    type: "LIMPIO_COUNTRIE",
+    payload,
+  };
+}
+export function addCountrie(payload) {
+  return {
+    type: "ADD_COUNTRIE",
+    payload,
+  };
+}

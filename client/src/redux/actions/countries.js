@@ -57,3 +57,18 @@ export function searchCountrie(name) {
     }
   };
 }
+export function postCountrie(payload) {
+  return async function (dispatch) {
+    try {
+      let json = (await axios.post(`http://localhost:3001/activities`, payload))
+        .data;
+      return dispatch({
+        type: "POST_COUNTRIE",
+        payload: json,
+      });
+    } catch (error) {
+      console.error(error, "Error en el post: actions");
+      alert(error.message);
+    }
+  };
+}

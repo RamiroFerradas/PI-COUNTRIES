@@ -31,7 +31,10 @@ export default function Filtros() {
     e.preventDefault();
 
     setActualFilter((state) => {
-      return { ...state, continent: e.target.value };
+      return {
+        ...state,
+        continent: e.target.value,
+      };
     });
     dispatch(setCurrentPage(1));
   };
@@ -40,7 +43,10 @@ export default function Filtros() {
     e.preventDefault();
 
     setActualFilter((state) => {
-      return { ...state, activities: e.target.value };
+      return {
+        ...state,
+        activities: e.target.value,
+      };
     });
     dispatch(setCurrentPage(1));
   };
@@ -64,6 +70,7 @@ export default function Filtros() {
           })}
         </select>
       </div>
+
       <div>
         <label htmlFor="">Filter By Continent</label>
         <select name="" id="" onChange={(e) => handleContinent(e)}>

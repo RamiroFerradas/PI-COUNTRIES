@@ -1,79 +1,196 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import Navbar from "../Navbar/NavbarFiltOrd";
+import React, { useEffect } from "react";
 import { MdArrowBackIosNew } from "react-icons/md";
-import NavbarPrincipal from "../Navbar/NavbarFiltOrd";
 import { useState } from "react";
 import styles from "../Activity Create/ActivityCreate.module.css";
-import Searchbar from "../Searchbar/Searchbar";
 import { useDispatch, useSelector } from "react-redux";
-import { searchCountrie } from "../../redux/actions/countries";
-import { setCurrentPage } from "../../redux/actions/actions";
-import Card from "../Card/Card";
-import CardCreateActivitie from "../Card/CardCreateActivitie";
+import {
+  getCountries,
+  postCountrie,
+  searchCountrieGlobal,
+} from "../../redux/actions/countries";
+
+import { NavLink, useNavigate } from "react-router-dom";
+import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
+
+import { getActivities } from "../../redux/actions/activities";
+import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 
 export default function ActivityCreate() {
-  const searchCountries = useSelector((state) => state.countries);
-  const [input, setInput] = useState({
-    name: "",
-    difficulty: null,
-    duration: null,
-    season: [],
-    countries: [],
-    flag: [],
-  });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getActivities());
+    dispatch(getCountries());
+  }, [dispatch]);
+
+  const activities = useSelector((state) => state.activities);
 
   const [name, setName] = useState("");
-  const [localCountries, setLocalCountries] = useState({
-    name: [],
-    flag: [],
-  });
-
   const [errors, setErrors] = useState({});
-  const dispatch = useDispatch();
+
+  const [input, setInput] = useState({
+    name: "",
+    difficulty: 0,
+    duration: 0,
+    season: [],
+
+    countriesName: [],
+    flag: [],
+    countries: [],
+  });
 
   const handleChangeInput = (e) => {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
-    // setErrors(
-    //   validate({
-    //     ...input,
-    //     [e.target.name]: e.target.value,
-    //   })
-    // );
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   };
 
   const handlerInputChek = (e) => {
-    console.log(e.target.checked);
     if (e.target.checked) {
       setInput((prevState) => ({
         ...prevState,
         season: input.season.concat(e.target.value),
       }));
+      setErrors(
+        validate({
+          ...input,
+          season: [...input.season, e.target.value],
+        })
+      );
     } else {
       setInput((prevState) => ({
         ...prevState,
-        season: input.season.filter((ele) => e.target.value !== ele),
+        season: input.season.filter((x) => e.target.value !== x),
       }));
+
+      setErrors(
+        validate({
+          ...input,
+          season: input.season.filter((x) => e.target.value !== x),
+        })
+      );
     }
   };
 
   const handleSearchCountries = (e) => {
     setName(e.target.value.toLowerCase());
-    console.log(e.target.value);
-    dispatch(searchCountrie(name));
-    // setCurrentPage(1);
+    dispatch(searchCountrieGlobal(name));
+    // dispatch(setCurrentPage(1));
   };
 
-  const handleClickButton = (e) => {
-    console.log(input);
+  const handleChange = (e) => {
+    e.preventDefault();
+    dispatch(
+      postCountrie({
+        ...input,
+        name: input.name.toLowerCase(),
+        // ...localCountries,
+      })
+    );
+    alert("Your activity has been successfully created!");
     setInput({
-      ...input,
-      season: input.countries.concat(e.target.value),
+      name: "",
+      difficulty: 0,
+      duration: 0,
+      season: [],
+      countriesName: [],
+      flag: [],
+      countries: [],
     });
+
+    setTimeout(() => {
+      navigate("/activities");
+    }, 200);
   };
+
+  //validations
+  function validate(input) {
+    let errors = {};
+
+    //name
+    if (
+      activities.find(
+        (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
+      ) ||
+      console.log(
+        activities.find((ele) => ele.countries),
+        "caca"
+      )
+    )
+      errors.name =
+        "Ya existe una actividad con este nombre en ese pais, escoge otra!";
+
+    // if (activities.find((ele) => ele.countries === input.countriesName))
+    // errors.name =
+    // "Ya existe una actividad con este nombre en ese pais, escoge otra!";
+    if (input.name === "") errors.name = "Tu actividad necesita un nombre!";
+
+    if (/[^\w\s]/.test(input.name))
+      errors.name =
+        "El nombre de tu actividad no puede contener caracteres especiales";
+
+    //difficulty
+    if (input.difficulty === 0)
+      errors.difficulty = "La dificultad debe ser mayor a 0!";
+    if (
+      input.difficulty > 10 ||
+      input.difficulty < 1 ||
+      !/\d/g.test(input.difficulty)
+    )
+      errors.difficulty = "El valor debe estar entre 1 y 10";
+
+    //duration
+    if (input.duration === 0)
+      errors.duration = "La duration debe ser mayor a 0!";
+    if (
+      input.duration > 24 ||
+      input.duration < 1 ||
+      !/\d/g.test(input.duration)
+    )
+      errors.duration = "El valor debe estar entre 1 y 24";
+
+    //Season
+    if (!input.season?.length)
+      errors.season = "Tu actividad necesita una temporada al menos!";
+
+    // //genres
+    if (!input.countries?.length)
+      errors.countries = "Tu actividad necesita un countrie al menos!";
+
+    return errors;
+  }
+
+  const [disabledButton, setDisabledButton] = useState(true);
+  useEffect(() => {
+    if (
+      input.name === "" ||
+      /[1-9]/.test(input.name) ||
+      // /[\s]/.test(input.name) ||
+      /[^\w\s]/.test(input.name) ||
+      input.difficulty.length < 1 ||
+      input.difficulty.length > 10 ||
+      input.duration.length < 1 ||
+      input.duration.length > 24 ||
+      input.season.length < 1 ||
+      input.season.length > 4 ||
+      input.countriesName.length < 1 ||
+      activities.find(
+        (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
+      )
+    ) {
+      setDisabledButton(true);
+    } else {
+      setDisabledButton(false);
+    }
+  }, [activities, errors, input, setDisabledButton]);
 
   return (
     <div>
@@ -91,10 +208,10 @@ export default function ActivityCreate() {
       <div>
         <NavbarPrincipal />
       </div>
+      <div>
+        <h1>ACTIVITY CREATOR </h1>
+      </div>
       <form action="">
-        <div>
-          <h1>ACTIVITY CREATOR </h1>
-        </div>
         <div>
           <label htmlFor="">Name: </label>
           <input
@@ -113,7 +230,7 @@ export default function ActivityCreate() {
           <label htmlFor="">Difficulty: </label>
           <input
             type="range"
-            max="100"
+            max="10"
             onChange={(e) => handleChangeInput(e)}
             value={input.difficulty}
             name="difficulty"
@@ -201,31 +318,42 @@ export default function ActivityCreate() {
             onChange={(e) => handleSearchCountries(e)}
           />
         </form>
-        <div>
-          {name &&
-            searchCountries.map((ele) => {
-              return (
-                <div key={ele.id}>
-                  <button
-                    name={ele.id}
-                    value={ele.id}
-                    onClick={(e) =>
-                      setInput({
-                        ...input,
-                        countries: ele.name,
-                        flag: ele.flag,
-                      })
-                    }
-                  >
-                    <CardCreateActivitie name={ele.name} flag={ele.flag} />
-                  </button>
-                </div>
-              );
-            })}
-        </div>
         <div className={styles.errores}>
           {errors.countries && <p>⚠ {errors.countries}</p>}
         </div>
+        <div>
+          <SearchBarActivities
+            validate={validate}
+            setErrors={setErrors}
+            // localCountries={localCountries}
+            input={input}
+            setInput={setInput}
+            name={name}
+          />
+        </div>
+      </div>
+      <div className={styles.buttonCreate}>
+        <button
+          className={styles.buttonCreated1}
+          disabled={disabledButton}
+          onClick={(e) => handleChange(e)}
+        >
+          CREATE
+          <div className={styles.iconCreated}>
+            <svg
+              height="24"
+              width="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
   );
