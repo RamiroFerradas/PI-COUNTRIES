@@ -11,7 +11,7 @@ export default function Filtros() {
     dispatch(getActivities());
   }, [dispatch]);
 
-  const countries = useSelector((state) => state.countries);
+  const countries = useSelector((state) => state.allCountries);
 
   const continent = countries.map((ele) => ele.continent);
   const set = Array.from(new Set(continent));

@@ -8,19 +8,20 @@ export default function FiltroContinentAz({ handleContinent }) {
   const countries = useSelector((state) => state.allCountries);
   const continent = countries.map((ele) => ele.continent);
   const set = Array.from(new Set(continent));
+  console.log(continent, "ACAA");
 
   return (
     <div>
       <label htmlFor="">Filter By Continent</label>
       <select name="" id="" onChange={(e) => handleContinent(e)}>
         <option value="default">All</option>
-        {set?.map((ele) => {
+        {/* {set?.map((ele) => {
           return (
             <option key={ele} value={ele}>
               {ele}
             </option>
           );
-        })}
+        })} */}
       </select>
     </div>
   );
