@@ -92,7 +92,6 @@ export default function ActivityCreate() {
       postCountrie({
         ...input,
         name: input.name.toLowerCase(),
-        // ...localCountries,
       })
     );
     alert("Your activity has been successfully created!");
@@ -325,7 +324,6 @@ export default function ActivityCreate() {
           <SearchBarActivities
             validate={validate}
             setErrors={setErrors}
-            // localCountries={localCountries}
             input={input}
             setInput={setInput}
             name={name}

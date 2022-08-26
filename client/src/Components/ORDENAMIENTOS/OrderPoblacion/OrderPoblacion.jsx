@@ -6,7 +6,6 @@ import { orderPopulation } from "../../../redux/actions/ordenamientos";
 export default function OrderPoblacion() {
   const dispatch = useDispatch();
   const handlerPopulation = (e) => {
-    // e.preventDefault();
     dispatch(orderPopulation(e.target.value));
     dispatch(setCurrentPage(1));
   };

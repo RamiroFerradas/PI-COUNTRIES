@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../../redux/actions/countries";
-
+//components
 import Card from "../Card/Card";
 import NavbarFiltOrd from "../Navbar/NavbarFiltOrd";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
-
 import Paginado from "../Paginado/Paginado";
+import { getActivities } from "../../redux/actions/activities";
 
 export default function Home() {
   let dispatch = useDispatch();
   let allCountries = useSelector((state) => state.countries);
   let currentPage = useSelector((state) => state.page);
-  // const [order, setOrder] = useState("");
 
   useEffect(() => {
+    dispatch(getActivities());
     if (allCountries.length) {
       return allCountries;
     } else {
@@ -23,7 +23,6 @@ export default function Home() {
     }
   }, [allCountries, dispatch]);
 
-  // let [countriesPerPage, setCountriesPerPage] = useState(10);
   let countriesPerPage = useSelector((state) => state.countriesPerPage);
   const indexOfLastCountrie = countriesPerPage * currentPage;
   const indexOfFirstCountrie = indexOfLastCountrie - countriesPerPage;

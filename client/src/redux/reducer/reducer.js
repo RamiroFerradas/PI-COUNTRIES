@@ -104,13 +104,6 @@ export default function rootReducer(state = initialState, action) {
 
     case "ORDER_AZ":
       let currentCountries = [...state.allCountries];
-      if (action.payload === "default") {
-        return {
-          ...state,
-          countries: currentCountries,
-        };
-      }
-
       const aux = [...state.countries];
       if (action.payload === "asc") {
         console.log(aux);
@@ -123,17 +116,14 @@ export default function rootReducer(state = initialState, action) {
       }
       return {
         ...state,
-        countries: currentCountries,
+        countries:
+          action.payload === "default"
+            ? [...state.allCountries]
+            : currentCountries,
       };
 
     case "FILTER_POPULATION":
       let currentCountries2 = [...state.allCountries];
-      if (action.payload === "default") {
-        return {
-          ...state,
-          countries: currentCountries2,
-        };
-      }
 
       const aux2 = [...state.countries];
       if (action.payload === "min") {
@@ -147,8 +137,12 @@ export default function rootReducer(state = initialState, action) {
       }
       return {
         ...state,
-        countries: currentCountries2,
+        countries:
+          action.payload === "default"
+            ? [...state.allCountries]
+            : currentCountries2,
       };
+
     case "GET_COUNTRIES_DETAILS":
       return {
         ...state,

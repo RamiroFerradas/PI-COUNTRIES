@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
@@ -9,7 +9,6 @@ export default function Paginado({ allCountries }) {
   let currentPage = useSelector((state) => state.page);
   let countriesPerPage = useSelector((state) => state.countriesPerPage);
   let pageNumbers = [];
-  // let [countriesPerPage, setCountriesPerPage] = useState(10);
   let totalPages = Math.ceil(allCountries / countriesPerPage);
 
   for (let i = 1; i <= totalPages; i++) {
