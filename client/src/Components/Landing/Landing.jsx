@@ -5,13 +5,17 @@ import image from "../../assets/images/cortado2.png";
 
 export default function Landing() {
   return (
-    <div className={styles.body}>
-      <div className={styles.png}>
-        <div className={styles.hola}>
+    <div>
+      <Link to={"/home"}>
+        <button className={styles.button}>INGRESS</button>
+      </Link>
+      <div>
+        <h1 className={styles.text}>Welcome to my amazing countries App!</h1>
+      </div>
+      <div className={styles.body}>
+        <div className={styles.parpadeo}>
+          <div></div>
           {/* <img src={image} alt="holaa" /> */}
-          <Link to={"/home"}>
-            <button>INGRESS</button>
-          </Link>
         </div>
       </div>
     </div>

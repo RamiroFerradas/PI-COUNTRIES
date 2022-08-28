@@ -90,7 +90,6 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case "ADD_COUNTRIE":
-      console.log(action.payload, "HOLAAA");
       // let addCountrie = state.countries.push(selector);
 
       return {
@@ -102,7 +101,6 @@ export default function rootReducer(state = initialState, action) {
       let currentCountries = [...state.allCountries];
       const aux = [...state.countries];
       if (action.payload === "asc") {
-        console.log(aux);
         aux.sort((a, b) => (a.name < b.name ? -1 : 1));
         currentCountries = aux;
       }
@@ -123,7 +121,6 @@ export default function rootReducer(state = initialState, action) {
 
       const aux2 = [...state.countries];
       if (action.payload === "min") {
-        console.log(aux2);
         aux2.sort((a, b) => (a.population < b.population ? -1 : 1));
         currentCountries2 = aux2;
       }

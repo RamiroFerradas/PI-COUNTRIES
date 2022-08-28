@@ -3,11 +3,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 import { useState } from "react";
 import styles from "../Activity Create/ActivityCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getCountries,
-  postCountrie,
-  searchCountrieGlobal,
-} from "../../redux/actions/countries";
+import { getCountries, postCountrie } from "../../redux/actions/countries";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
@@ -19,6 +15,9 @@ import SelectorCountries from "./Selector Countries/SelectorCountries";
 export default function ActivityCreate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let countriesBusqueda = useSelector((state) => state.countries);
+
+  let [countriesA, setCountriesA] = useState(countriesBusqueda);
 
   useEffect(() => {
     dispatch(getActivities());
@@ -28,6 +27,7 @@ export default function ActivityCreate() {
   let activities = useSelector((state) => state.activities);
 
   const [name, setName] = useState("");
+
   const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
@@ -109,22 +109,10 @@ export default function ActivityCreate() {
     let errors = {};
 
     //name
-    if (
-      activities.find(
-        (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
-      )
-      // ||
-      // console.log(
-      //   activities.find((ele) => ele.countries),
-      //   "caca"
-      // )
-    )
-      errors.name =
-        "Ya existe una actividad con este nombre en ese pais, escoge otra!";
+    if (activities.map((ele) => ele.name).includes(input.name)) {
+    }
+    errors.name = "This country already has the selected activity ";
 
-    // if (activities.find((ele) => ele.countries === input.countriesName))
-    // errors.name =
-    // "Ya existe una actividad con este nombre en ese pais, escoge otra!";
     if (input.name === "") errors.name = "Tu actividad necesita un nombre!";
 
     if (/[^\w\s]/.test(input.name))
@@ -175,7 +163,7 @@ export default function ActivityCreate() {
       input.duration.length > 24 ||
       input.season.length < 1 ||
       input.season.length > 4 ||
-      input.countries.length ||
+      !input.countries?.length ||
       activities.find(
         (ele) => ele.name?.toLowerCase() === input.name?.toLowerCase()
       )
@@ -185,6 +173,22 @@ export default function ActivityCreate() {
       setDisabledButton(false);
     }
   }, [activities, errors, input, setDisabledButton]);
+
+  const handlerClear = () => {
+    setInput({
+      name: "",
+      difficulty: 0,
+      duration: 0,
+      season: "",
+      countriesName: [],
+      flag: [],
+      countries: [],
+    });
+    document.getElementsByClassName("form-check-input")[0].checked = false;
+    document.getElementsByClassName("form-check-input")[1].checked = false;
+    document.getElementsByClassName("form-check-input")[2].checked = false;
+    document.getElementsByClassName("form-check-input")[3].checked = false;
+  };
 
   return (
     <div>
@@ -229,8 +233,19 @@ export default function ActivityCreate() {
             value={input.difficulty}
             name="difficulty"
           />
+          <div>
+            {input.difficulty === "1"
+              ? "Beginner"
+              : input.difficulty === "2"
+              ? "Amateur"
+              : input.difficulty === "3"
+              ? "Intermediate"
+              : input.difficulty === "4"
+              ? "Advanced"
+              : "Expert"}
+          </div>
 
-          <p>{input.difficulty}</p>
+          {/* <p>{input.difficulty}</p> */}
 
           <div className={styles.errores}>
             {errors.difficulty && <p>⚠ {errors.difficulty}</p>}
@@ -319,6 +334,8 @@ export default function ActivityCreate() {
             setInput={setInput}
             name={name}
             setName={setName}
+            countriesA={countriesA}
+            setCountriesA={setCountriesA}
           />
         </div>
         <div>
@@ -329,6 +346,8 @@ export default function ActivityCreate() {
             setInput={setInput}
             name={name}
             setName={setName}
+            countriesA={countriesA}
+            setCountriesA={setCountriesA}
           />
         </div>
       </div>
@@ -354,7 +373,7 @@ export default function ActivityCreate() {
             </svg>
           </div>
         </button>
-        {/* <button onClick={(e) => handlerClear(e)}>RESET</button> */}
+        <button onClick={(e) => handlerClear(e)}>RESET</button>
       </div>
     </div>
   );
