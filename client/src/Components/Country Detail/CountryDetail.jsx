@@ -7,7 +7,7 @@ import { getCountriesDetails } from "../../redux/actions/countries";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { cleanCache } from "../../redux/actions/actions";
 import MapComponent from "./Map/MyComponent";
-import Navbar from "../Navbar/NavbarFiltOrd";
+import NavbarFiltrosYOrdenamientos from "../Navbar/NavbarFiltrosYOrdenamientos/NavbarFiltrosYOrdenamientos";
 
 export default function CountryDetail() {
   let navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function CountryDetail() {
         </button>
       </div>
       <div>
-        <Navbar />
+        <NavbarFiltrosYOrdenamientos />
       </div>
 
       <div>

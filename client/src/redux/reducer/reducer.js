@@ -5,6 +5,8 @@ const initialState = {
   details: [],
   page: 1,
   countriesPerPage: 10,
+  loader: true,
+  clearFilter: "",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -15,6 +17,7 @@ export default function rootReducer(state = initialState, action) {
         countries: action.payload,
         allCountries: action.payload,
         page: 1,
+        loader: false,
       };
 
     case "GET_ACTIVITIES":
@@ -22,6 +25,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         activities: action.payload,
         page: 1,
+        loader: false,
       };
 
     case "SEARCH_COUNTRIE_GLOBAL":
@@ -33,6 +37,7 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         countries: filt,
         page: 1,
+        loader: false,
       };
 
     case "SEARCH_COUNTRIE":
@@ -140,6 +145,7 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         details: action.payload,
+        loader: false,
       };
     case "CLEAN_CACHE":
       return {
@@ -165,33 +171,3 @@ export default function rootReducer(state = initialState, action) {
       return state;
   }
 }
-
-// case "FILTER_ACTIVITIE":
-//   let allCountries2 = state.allCountries;
-
-//   let filter = allCountries2
-//     .filter((ele) => ele.activities.length)
-//     .filter((ele) =>
-//       ele.activities
-//         .map((ele) => Object.values(ele)[0])
-//         .includes(action.payload)
-//     );
-//   // allCountries2 = filter;
-
-//   return {
-//     ...state,
-//     countries: action.payload === "default" ? allCountries2 : filter,
-//   };
-
-// case "FILTER_CONTINENT":
-//   let allCountries3 = state.allCountries;
-
-//   const countriesFiltered = allCountries3.filter(
-//     (ele) => ele.continent === action.payload
-//   );
-
-//   return {
-//     ...state,
-//     countries:
-//       action.payload === "default" ? allCountries3 : countriesFiltered,
-//   };

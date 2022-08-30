@@ -5,8 +5,9 @@ import { getActivities } from "../../redux/actions/activities";
 import { filters } from "../../redux/actions/filtros";
 import FiltroActividadTuristica from "./Filtro Axtividad Turistica/FiltroActividadTuristica";
 import FiltroContinent from "./Filtro por Continentes/FiltroContinent";
+import styles from "../FILTROS/Filtros.module.css";
 
-export default function Filtros() {
+export default function Filtros({ setSelected, selected }) {
   const dispatch = useDispatch();
 
   const [actualFilter, setActualFilter] = useState({
@@ -20,9 +21,13 @@ export default function Filtros() {
   }, [dispatch, actualFilter]);
 
   return (
-    <div>
+    <div className={styles.filtrosConteiner}>
       <div>
-        <FiltroActividadTuristica setActualFilter={setActualFilter} />
+        <FiltroActividadTuristica
+          selected={selected}
+          setSelected={setSelected}
+          setActualFilter={setActualFilter}
+        />
       </div>
 
       <div>

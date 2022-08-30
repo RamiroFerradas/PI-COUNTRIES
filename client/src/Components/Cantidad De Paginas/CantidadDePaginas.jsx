@@ -1,22 +1,24 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { countriesPerPage, setCurrentPage } from "../../redux/actions/actions";
+import styles from "../Cantidad De Paginas/CantidadDePaginas.module.css";
 
 export default function CantidadDePaginas() {
   const dispatch = useDispatch();
+
+  const handlerPage = (e) => {
+    dispatch(countriesPerPage(e.target.value));
+    dispatch(setCurrentPage(1));
+  };
   return (
-    <div>
+    <div className={styles.containerPages}>
       <label> Pages</label>
-      <select
-        onChange={(e) =>
-          dispatch(countriesPerPage(e.target.value), setCurrentPage(1))
-        }
-      >
-        <option value="5">5</option>
+      <select onChange={(e) => handlerPage(e)}>
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="30">30</option>
         <option value="50">50</option>
+        <option value="100">100</option>
       </select>
       {/* <input
         type="range"

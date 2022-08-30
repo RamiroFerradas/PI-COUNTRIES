@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/actions/actions";
 import { searchCountrie } from "../../redux/actions/countries";
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions/actions";
 import { orderPopulation } from "../../../redux/actions/ordenamientos";
+import styles from "../OrderPoblacion/OrderPoblacion.module.css";
 
 export default function OrderPoblacion() {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ export default function OrderPoblacion() {
     dispatch(setCurrentPage(1));
   };
   return (
-    <div>
+    <div className={styles.orderPop}>
       <label>Population Order</label>
       <select name="" id="" onChange={(e) => handlerPopulation(e)}>
         <option value="Default">Default</option>

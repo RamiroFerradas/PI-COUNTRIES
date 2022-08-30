@@ -1,0 +1,18 @@
+.contenedorAct {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+
+  color: antiquewhite;
+}
+.contenedorAct select {
+  background-color: rgba(89, 92, 76, 0.192);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 10rem;
+  background-color: rgb(44, 44, 44);
+  color: antiquewhite;
+}
+.contenedorAct label {
+}

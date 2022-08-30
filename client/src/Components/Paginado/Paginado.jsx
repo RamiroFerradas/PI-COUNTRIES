@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import styles from "../Paginado/Paginado.module.css";
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
 import { setCurrentPage } from "../../redux/actions/actions";
 
@@ -32,6 +32,7 @@ export default function Paginado({ allCountries }) {
           <button
             key={num}
             disabled={num === currentPage}
+            className={num === currentPage ? styles.desactivado : styles.button}
             onClick={() => dispatch(setCurrentPage(num))}
           >
             {num}
