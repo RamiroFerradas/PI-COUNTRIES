@@ -1,7 +1,11 @@
 .containerCard {
-  display: flex;
-  place-content: center;
-  place-items: center;
-  overflow: hidden;
-  flex-wrap: wrap;
+  color: antiquewhite;
+  line-height: 1rem;
+}
+.containerCard img {
+  object-fit: cover;
+}
+.containerCard p,
+.containerCard h5 {
+  text-shadow: -4px 3px 10px #000000;
 }

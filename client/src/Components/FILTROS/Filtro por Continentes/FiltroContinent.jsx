@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions/actions";
-import styles from "../Filtro Axtividad Turistica/FiltroContinent.module.css";
+import styles from "../Filtro por Continentes/FiltroContinent.module.css";
 
 export default function FiltroContinent({ setActualFilter }) {
   const dispatch = useDispatch();

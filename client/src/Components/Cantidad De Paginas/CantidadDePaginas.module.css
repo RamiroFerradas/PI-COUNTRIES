@@ -1,4 +1,17 @@
 .containerPages {
   /* background-color: red; */
   margin-right: 2rem;
+
+  border-radius: 10px;
+  color: #ffee10;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1.2rem;
+}
+
+.button:disabled {
+  border-radius: 10px;
+  color: #4c4a4a;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1.2rem;
+  transition: 0.3s;
 }

@@ -2,9 +2,13 @@
   /* background-color: red; */
   display: flex;
   flex-direction: column;
-
-  color: antiquewhite;
+  text-align: center;
+  align-items: center;
+  color: #ffee10;
+  margin-bottom: 2rem;
 }
+
+.contenedorAct option,
 .contenedorAct select {
   background-color: rgba(89, 92, 76, 0.192);
   display: flex;
@@ -13,6 +17,6 @@
   width: 10rem;
   background-color: rgb(44, 44, 44);
   color: antiquewhite;
-}
-.contenedorAct label {
+  text-align: center;
+  align-items: center;
 }

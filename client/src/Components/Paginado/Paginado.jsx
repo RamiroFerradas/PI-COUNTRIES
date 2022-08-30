@@ -18,13 +18,13 @@ export default function Paginado({ allCountries }) {
   return (
     <nav>
       <button
-        // className={
-        //   currentPage - 1 === 0 ? styles.buttonPaged2 : styles.buttonPaged
-        // }
+        className={styles.buttonPaged2}
         disabled={currentPage - 1 === 0}
         onClick={() => dispatch(setCurrentPage(currentPage - 1))}
       >
-        <GiPreviousButton />
+        <span>
+          <GiPreviousButton />
+        </span>
       </button>
 
       {pageNumbers?.map((num) => {
@@ -32,7 +32,7 @@ export default function Paginado({ allCountries }) {
           <button
             key={num}
             disabled={num === currentPage}
-            className={num === currentPage ? styles.desactivado : styles.button}
+            className={styles.button}
             onClick={() => dispatch(setCurrentPage(num))}
           >
             {num}
@@ -41,9 +41,7 @@ export default function Paginado({ allCountries }) {
       })}
 
       <button
-        // className={
-        //   currentPage === totalPages ? styles.buttonPaged2 : styles.buttonPaged
-        // }
+        className={styles.buttonPaged2}
         disabled={currentPage === totalPages}
         onClick={() => dispatch(setCurrentPage(currentPage + 1))}
       >

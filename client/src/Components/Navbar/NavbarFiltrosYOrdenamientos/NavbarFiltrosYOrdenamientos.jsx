@@ -5,6 +5,7 @@ import Filtros from "../../FILTROS/Filtros";
 import Ordenamientos from "../../ORDENAMIENTOS/Ordenamientos";
 import Searchbar from "../../Searchbar/Searchbar";
 import styles from "../NavbarFiltrosYOrdenamientos/NavbarFiltrosYOrdenamientos.module.css";
+import { AiOutlineClear } from "react-icons/ai";
 
 export default function NavbarFiltrosYOrdenamientos() {
   const [selected, setSelected] = useState("");
@@ -20,13 +21,12 @@ export default function NavbarFiltrosYOrdenamientos() {
         <Ordenamientos />
       </div>
       <div>
-        <button
-          className={`btn btn-warning ${styles.buttonClear}`}
-          onClick={(e) => handleClear(e)}
-        >
-          CLEAR
+        <button className={styles.buttonClear} onClick={(e) => handleClear(e)}>
+          <AiOutlineClear />
         </button>
       </div>
     </div>
   );
 }
+
+//`btn btn-warning

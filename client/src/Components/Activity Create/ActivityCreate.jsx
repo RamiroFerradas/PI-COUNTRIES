@@ -4,10 +4,9 @@ import { useState } from "react";
 import styles from "../Activity Create/ActivityCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postCountrie } from "../../redux/actions/countries";
-
+import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router-dom";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
-
 import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 import SelectorCountries from "./Selector Countries/SelectorCountries";
@@ -32,7 +31,7 @@ export default function ActivityCreate() {
 
   const [input, setInput] = useState({
     name: "",
-    difficulty: 0,
+    difficulty: 1,
     duration: 0,
     season: [],
     countriesName: [],
@@ -210,17 +209,26 @@ export default function ActivityCreate() {
         <h1>ACTIVITY CREATOR </h1>
       </div>
       <form action="">
-        <div>
-          <label htmlFor="">Name: </label>
-          <input
-            type="text"
-            placeholder="Name..."
-            autoComplete="on"
-            onChange={(e) => handleChangeInput(e)}
-            value={input.name}
-            name="name"
-          />
-          <div className={styles.errores}>
+        <div className="input-group has-validation">
+          <span className="input-group-text">
+            <MdOutlineDriveFileRenameOutline />{" "}
+          </span>
+          <div class="form-floating is-invalid">
+            <input
+              type="text"
+              class="form-control is-invalid"
+              id="floatingInputGroup2"
+              placeholder="Name..."
+              autoComplete="on"
+              onChange={(e) => handleChangeInput(e)}
+              value={input.name}
+              name="name"
+            />
+            <label for="floatingInputGroup2" htmlFor="">
+              Name
+            </label>
+          </div>
+          <div className="invalid-feedback">
             {errors.name && <p>⚠ {errors.name}</p>}
           </div>
         </div>
@@ -228,10 +236,12 @@ export default function ActivityCreate() {
           <label htmlFor="">Difficulty: </label>
           <input
             type="range"
+            min="1"
             max="5"
             onChange={(e) => handleChangeInput(e)}
             value={input.difficulty}
             name="difficulty"
+            defaultValue="1"
           />
           <div>
             {input.difficulty === "1"
