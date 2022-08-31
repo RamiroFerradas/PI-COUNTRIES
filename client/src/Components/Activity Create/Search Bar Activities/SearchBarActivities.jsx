@@ -62,6 +62,7 @@ export default function SearchBarActivities({
             return (
               <div key={ele.id} className={styles.cardSearch}>
                 <button
+                  className={styles.button}
                   onClick={() => {
                     if (
                       ele.activities.map((ele) => ele.name).includes(input.name)
@@ -99,7 +100,15 @@ export default function SearchBarActivities({
                     // dispatch(limpioUnCountrie(ele.name));
                   }}
                 >
-                  <CardCreateActivitie name={ele.name} flag={ele.flag} />
+                  <div className={styles.imageSearch}>
+                    <p>{ele.name}</p>
+                    <img
+                      width="70rem"
+                      height="70rem"
+                      src={ele.flag}
+                      alt={ele.name}
+                    />
+                  </div>
                 </button>
               </div>
             );

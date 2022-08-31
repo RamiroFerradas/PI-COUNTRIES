@@ -107,10 +107,11 @@ export default function ActivityCreate() {
   function validate(input) {
     let errors = {};
 
+    console.log(activities.map((ele) => ele.name).includes(input.name));
     //name
-    if (activities.map((ele) => ele.name).includes(input.name)) {
-    }
-    errors.name = "This country already has the selected activity ";
+    // if (activities?.map((ele) => ele.name).includes(input.name)) {
+    //   errors.name = "This country already has the selected activity ";
+    // }
 
     if (input.name === "") errors.name = "Tu actividad necesita un nombre!";
 
@@ -208,134 +209,138 @@ export default function ActivityCreate() {
       <div>
         <h1>ACTIVITY CREATOR </h1>
       </div>
-      <form action="">
-        <div className="input-group has-validation">
-          <span className="input-group-text">
-            <MdOutlineDriveFileRenameOutline />{" "}
-          </span>
-          <div class="form-floating is-invalid">
-            <input
-              type="text"
-              class="form-control is-invalid"
-              id="floatingInputGroup2"
-              placeholder="Name..."
-              autoComplete="on"
-              onChange={(e) => handleChangeInput(e)}
-              value={input.name}
-              name="name"
-            />
-            <label for="floatingInputGroup2" htmlFor="">
-              Name
-            </label>
-          </div>
-          <div className="invalid-feedback">
-            {errors.name && <p>⚠ {errors.name}</p>}
-          </div>
-        </div>
-        <div>
-          <label htmlFor="">Difficulty: </label>
-          <input
-            type="range"
-            min="1"
-            max="5"
-            onChange={(e) => handleChangeInput(e)}
-            value={input.difficulty}
-            name="difficulty"
-            defaultValue="1"
-          />
-          <div>
-            {input.difficulty === "1"
-              ? "Beginner"
-              : input.difficulty === "2"
-              ? "Amateur"
-              : input.difficulty === "3"
-              ? "Intermediate"
-              : input.difficulty === "4"
-              ? "Advanced"
-              : "Expert"}
-          </div>
-
-          {/* <p>{input.difficulty}</p> */}
-
-          <div className={styles.errores}>
-            {errors.difficulty && <p>⚠ {errors.difficulty}</p>}
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="">Duration: </label>
-          <input
-            type="range"
-            max="24"
-            onChange={(e) => handleChangeInput(e)}
-            value={input.duration}
-            name="duration"
-          />
-          <p>{input.duration}</p>
-          <label>hs.</label>
-          <div className={styles.errores}>
-            {errors.duration && <p>⚠ {errors.duration}</p>}
-          </div>
-        </div>
-      </form>
       <div>
-        <label htmlFor="">Season: </label>
-        <form onChange={(e) => handlerInputChek(e)}>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              name="summer"
-              id="summer"
-              value="summer"
-            />
-            <label htmlFor="summer">Summer.</label>
+        <div className={styles.primeraColumna}>
+          <form action="">
+            <div className="input-group has-validation">
+              <span className="input-group-text">
+                <MdOutlineDriveFileRenameOutline />
+              </span>
+              <div class="form-floating is-invalid">
+                <input
+                  type="text"
+                  class="form-control is-invalid"
+                  id="floatingInputGroup2"
+                  placeholder="Name..."
+                  autoComplete="on"
+                  onChange={(e) => handleChangeInput(e)}
+                  value={input.name}
+                  name="name"
+                />
+                <label for="floatingInputGroup2" htmlFor="">
+                  Name
+                </label>
+              </div>
+              <div className="invalid-feedback">
+                {errors.name && <p>⚠ {errors.name}</p>}
+              </div>
+            </div>
+            <div>
+              <label htmlFor="">Difficulty: </label>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                onChange={(e) => handleChangeInput(e)}
+                value={input.difficulty}
+                name="difficulty"
+                defaultValue="1"
+              />
+              <div>
+                {input.difficulty === "1"
+                  ? "Beginner"
+                  : input.difficulty === "2"
+                  ? "Amateur"
+                  : input.difficulty === "3"
+                  ? "Intermediate"
+                  : input.difficulty === "4"
+                  ? "Advanced"
+                  : "Expert"}
+              </div>
+
+              {/* <p>{input.difficulty}</p> */}
+
+              <div className={styles.errores}>
+                {errors.difficulty && <p>⚠ {errors.difficulty}</p>}
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="">Duration: </label>
+              <input
+                type="range"
+                max="24"
+                onChange={(e) => handleChangeInput(e)}
+                value={input.duration}
+                name="duration"
+              />
+              <p>{input.duration}</p>
+              <label>hs.</label>
+              <div className={styles.errores}>
+                {errors.duration && <p>⚠ {errors.duration}</p>}
+              </div>
+            </div>
+          </form>
+          <div>
+            <label htmlFor="">Season: </label>
+            <form onChange={(e) => handlerInputChek(e)}>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  name="summer"
+                  id="summer"
+                  value="summer"
+                />
+                <label htmlFor="summer">Summer.</label>
+              </div>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  name="autumn"
+                  id="autumn"
+                  value="autumn"
+                />
+                <label htmlFor="autumn">Autumn.</label>
+              </div>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  name="winter"
+                  id="winter"
+                  value="winter"
+                />
+                <label htmlFor="winter">Winter.</label>
+              </div>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  name="spring"
+                  id="spring"
+                  value="spring"
+                />
+                <label htmlFor="spring">Spring.</label>
+              </div>
+            </form>
+            <div className={styles.errores}>
+              {errors.season && <p>⚠ {errors.season}</p>}
+            </div>
           </div>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              name="autumn"
-              id="autumn"
-              value="autumn"
-            />
-            <label htmlFor="autumn">Autumn.</label>
-          </div>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              name="winter"
-              id="winter"
-              value="winter"
-            />
-            <label htmlFor="winter">Winter.</label>
-          </div>
-          <div className="form-check form-switch">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              name="spring"
-              id="spring"
-              value="spring"
-            />
-            <label htmlFor="spring">Spring.</label>
-          </div>
-        </form>
-        <div className={styles.errores}>
-          {errors.season && <p>⚠ {errors.season}</p>}
         </div>
       </div>
-      <div>
+      <div className={styles.countries}>
         <label htmlFor="">Countrie: </label>
         <div className={styles.errores}>
           {errors.countries && <p>⚠ {errors.countries}</p>}
         </div>
-        <div>
+        <div className={styles.countriesSelected}>
           <h3>Countries Selected:</h3>
           <SelectorCountries
             validate={validate}
@@ -348,7 +353,7 @@ export default function ActivityCreate() {
             setCountriesA={setCountriesA}
           />
         </div>
-        <div>
+        <div className={styles.SearchCountries}>
           <SearchBarActivities
             validate={validate}
             setErrors={setErrors}
