@@ -1,7 +1,6 @@
 .containerPages {
   /* background-color: red; */
   margin-right: 2rem;
-
   border-radius: 10px;
   color: #ffee10;
   background-color: rgba(0, 0, 0, 0);
@@ -10,9 +9,7 @@
 
 .containerPages select {
   border-radius: 10px;
-
   background-color: rgba(89, 92, 76, 0.192);
-
   border-radius: 10px;
   margin-left: 10px;
   background-color: rgb(44, 44, 44);

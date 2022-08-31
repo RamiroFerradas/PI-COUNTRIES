@@ -48,6 +48,9 @@ export default function CountryDetail() {
       <div className={styles.divActivities}>
         <ul className={styles.ulActivitie}>
           <h2>Activities: </h2>
+          {details.activities?.length === 0 && (
+            <p>Activities for this country not available</p>
+          )}
           {details.activities?.map((ele) => {
             return (
               <div key={ele.id}>
