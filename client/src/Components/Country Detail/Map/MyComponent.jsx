@@ -5,7 +5,7 @@ import Apkey from "../../../Apkey";
 
 export default function MapComponent({ lat, lng }) {
   const containerStyle = {
-    width: "600px",
+    width: "500px",
     height: "400px",
   };
 
@@ -16,10 +16,8 @@ export default function MapComponent({ lat, lng }) {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    // googleMapsApiKey: Apkey(),
+    googleMapsApiKey: Apkey(),
   });
-
-  const [map, setMap] = useState(null);
 
   return isLoaded ? (
     <GoogleMap

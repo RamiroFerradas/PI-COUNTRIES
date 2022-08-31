@@ -34,9 +34,10 @@ export default function Landing() {
           </button>
         </Link>
         <div className={styles.infoMe}>
-          <ul>
-            <li>
+          <ul className={styles.ulLanding}>
+            <li className={styles.LiLanding}>
               <a
+                className={styles.aLand}
                 target="_blank"
                 rel="noreferrer"
                 href="https://www.linkedin.com/in/ramiro-ferradas-9b131522b/"
@@ -46,8 +47,9 @@ export default function Landing() {
                 </i>
               </a>
             </li>
-            <li>
+            <li className={styles.LiLanding}>
               <a
+                className={styles.aLand}
                 target="_blank"
                 rel="noreferrer"
                 href="https://github.com/RamiroFerradas"

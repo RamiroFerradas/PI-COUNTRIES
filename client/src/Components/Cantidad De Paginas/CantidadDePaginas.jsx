@@ -12,7 +12,7 @@ export default function CantidadDePaginas() {
   };
   return (
     <div className={styles.containerPages}>
-      <label> Pages</label>
+      <label> Look</label>
       <select onChange={(e) => handlerPage(e)}>
         <option value="10">10</option>
         <option value="20">20</option>
@@ -25,7 +25,6 @@ export default function CantidadDePaginas() {
         max="50"
         onChange={(e) => dispatch(countriesPerPage(e.target.value))}
       /> */}
-      ;
     </div>
   );
 }

@@ -4,6 +4,7 @@
 }
 .containerCard img {
   object-fit: cover;
+  border-radius: 4.5px;
 }
 .containerCard p,
 .containerCard h5 {

@@ -14,8 +14,10 @@ const getCountryModel = (ele) => {
     unMember: ele.unMember,
     officialName: ele.name.official,
     region: ele.region,
-    timezones: ele.timezones,
-    activities: ele.activities?.map((ele) => ele.name),
+    timezones: ele.timezones[0],
+    activities: ele.activities?.map(
+      (ele) => ele.name[0].toUpperCase() + ele.name.slice(1)
+    ),
     latlng: ele.latlng.map((ele) => ele),
   };
 };

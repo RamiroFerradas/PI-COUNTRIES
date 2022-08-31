@@ -7,6 +7,7 @@ import ActivityCreate from "./Components/Activity Create/ActivityCreate";
 import Home from "./Components/Home/Home";
 import Landing from "./Components/Landing/Landing";
 import Activities from "./Components/Activities/Activities";
+import About from "./Components/About/About";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/create" element={<ActivityCreate />} />
         <Route path="/home" element={<Home />} />
         <Route path="/activities" element={<Activities />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   );

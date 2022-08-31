@@ -1,50 +1,56 @@
 import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Searchbar from "../../Searchbar/Searchbar";
-import style from "../Navbar Principal/NavbarPrincipal.module.css";
+import styles from "../Navbar Principal/NavbarPrincipal.module.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavbarPrincipal() {
-  // const listRef = useRef(null);
-
-  // const handleOnClick = () => {
-  //   listRef.current.classList.toggle(style.visible);
-  // };
   return (
-    <div>
-      <div>
-        <button className={style.btn}>
-          <NavLink to="/home">COUNTRIES</NavLink>
-        </button>
-      </div>
-      <div>
-        <button className={style.btn}>
-          <NavLink to="/activities">ACTIVITIES</NavLink>
-        </button>
-      </div>
+    // <nav className={styles.naV}>
+    //   <ul className={styles.uL}>
+    //     <li className={styles.lI}>
+    //       <NavLink
+    //         to="/home"
+    //         className={styles.navLink}
+    //         // className={({ isActive }) => {
+    //         //   return isActive ? "is-active" : undefined;
+    //         // }}
+    //       >
+    //         COUNTRIES
+    //       </NavLink>
+    //     </li>
+    //     <li className={styles.lI}>
+    //       <NavLink
+    //         to="/activities"
+    //         // className={({ isActive }) => {
+    //         //   return isActive ? "is-active" : undefined;
+    //         // }}
+    //         className={styles.navLink}
+    //       >
+    //         ACTIVITIES
+    //       </NavLink>
+    //     </li>
+    //   </ul>
+    // </nav>
+    <div className={styles.bodyNav}>
+      <nav className={styles.navMenu}>
+        <NavLink to="/home" className={styles.Aa}>
+          COUNTRIES
+        </NavLink>
+        <NavLink to="/activities" className={styles.Aa}>
+          ACTIVITIES
+        </NavLink>
+        {/* <a className={styles.Aa} href="#">
+          Work
+        </a>
+        <a className={styles.Aa} href="#">
+          About
+        </a> */}
+        <div className={styles.dot}></div>
+      </nav>
     </div>
   );
 }
-// import Nav from "react-bootstrap/Nav";
-
-// export default function NavbarPrincipal() {
-//   return (
-//     <Nav justify variant="tabs" defaultActiveKey="/home">
-//       <Nav.Item>
-//         <Nav.Link href="/home">COUNTRIES</Nav.Link>
-//       </Nav.Item>
-//       <Nav.Item>
-//         <Nav.Link href="/create">ACTIVITIES</Nav.Link>
-//       </Nav.Item>
-//       <Nav.Item>
-//         <Nav.Link eventKey="link-2">Link</Nav.Link>
-//       </Nav.Item>
-//       <Nav.Item>
-//         <Nav.Link eventKey="disabled" disabled>
-//           Disabled
-//         </Nav.Link>
-//       </Nav.Item>
-//     </Nav>
-//   );
-// }
-
-// export default JustifiedExample;

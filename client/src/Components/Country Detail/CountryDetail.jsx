@@ -7,7 +7,8 @@ import { getCountriesDetails } from "../../redux/actions/countries";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { cleanCache } from "../../redux/actions/actions";
 import MapComponent from "./Map/MyComponent";
-import NavbarFiltrosYOrdenamientos from "../Navbar/NavbarFiltrosYOrdenamientos/NavbarFiltrosYOrdenamientos";
+import styles from "../Country Detail/CountryDetail.module.css";
+import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 
 export default function CountryDetail() {
   let navigate = useNavigate();
@@ -26,56 +27,64 @@ export default function CountryDetail() {
 
   let details = useSelector((state) => state.details);
 
-  // console.log(details.latlng, "details");
-
   return (
     <div>
-      <div>
-        <button onClick={(e) => cleanAndBack(e)}>
-          <div>
+      <div className={styles.navYButton}>
+        <div className={styles.divButton}>
+          <button
+            className={styles.buttonBack}
+            onClick={(e) => cleanAndBack(e)}
+          >
             <MdArrowBackIosNew />
-          </div>
-        </button>
+          </button>
+        </div>
+        <div className={styles.navbarDetails}>
+          <NavbarPrincipal />
+        </div>
       </div>
-      <div>
-        <NavbarFiltrosYOrdenamientos />
+      <div className={styles.divImg}>
+        <img src={details.flag} alt={details.name} />
       </div>
-
-      <div>
-        <h1>Name: {details.name}</h1>
-        <img
-          width="100px"
-          height="100px"
-          src={details.flag}
-          alt={details.name}
-        />
+      <div className={styles.divActivities}>
+        <ul className={styles.ulActivitie}>
+          <h2>Activities: </h2>
+          {details.activities?.map((ele) => {
+            return (
+              <div key={ele.id}>
+                <li>
+                  <h4>{ele.name}:</h4>
+                </li>
+                <p>- Difficulty: {ele.difficulty}</p>
+                <p>
+                  Duration:
+                  {ele.duration}
+                </p>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+      <div className={styles.CardDetails}>
+        <h2> {details.name}</h2>
         <p>Code: {details.id}</p>
         <p>Capital: {details.capital}</p>
         <p>Subregion: {details.subregion}</p>
         <p>Area: {details.area} m2</p>
         <p>Population: {details.population}</p>
-
-        <ul>
-          <h4>Activities: </h4>
-          {details.activities?.map((ele) => {
-            return (
-              <div key={ele.id}>
-                <li>{ele.name}</li>
-                <p>- Difficulty: {ele.difficulty}</p>
-                <p>- Duration: {ele.duration}</p>
-                <p>- Season: {ele.season}</p>
-              </div>
-            );
-          })}
-          <div></div>
-        </ul>
+        <p>- Area: {details.area}</p>
+        <p>- Onu Member: {details.unMember ? `✔` : `❌`}</p>
+        <p>- Time zones: {details.timezones}</p>
       </div>
-      {
-        <MapComponent
-          lat={details.latlng && Number(details.latlng[0])}
-          lng={details.latlng && Number(details.latlng[1])}
-        />
-      }
+
+      <div className={styles.divMapa}>
+        {
+          <MapComponent
+            className={styles.mapa}
+            lat={details.latlng && Number(details.latlng[0])}
+            lng={details.latlng && Number(details.latlng[1])}
+          />
+        }
+      </div>
     </div>
   );
 }

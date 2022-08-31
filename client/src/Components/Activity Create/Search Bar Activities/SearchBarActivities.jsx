@@ -7,12 +7,12 @@ import PaginadoActivitieCreate from "../Paginado Activitie Create/PaginadoActivi
 export default function SearchBarActivities({
   input,
   setInput,
-  name,
+  nameSearch,
   setErrors,
   validate,
   countriesA,
   setCountriesA,
-  setName,
+  setNameSearch,
 }) {
   let searchCountries = useSelector((state) => state.countries);
   // let searchCountriesAux = useSelector((state) => state.allCountries);
@@ -35,7 +35,7 @@ export default function SearchBarActivities({
     const filt = countriesA.filter((ele) =>
       ele.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    setName(e.target.value.toLowerCase());
+    setNameSearch(e.target.value.toLowerCase());
     setCountriesA(filt);
     // dispatch(setCurrentPage(1));
   };
@@ -51,13 +51,13 @@ export default function SearchBarActivities({
           disabled={input.name.length < 3 ? true : false}
         />
       </form>
-      {input.countries && (
+      {nameSearch && (
         <div>
           <PaginadoActivitieCreate allCountries={searchCountries.length} />
         </div>
       )}
 
-      {input.name.length > 3 && currentCountries.length
+      {nameSearch.length > 1 && currentCountries.length
         ? currentCountries.map((ele) => {
             return (
               <div key={ele.id} className={styles.cardSearch}>

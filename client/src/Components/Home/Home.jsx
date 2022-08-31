@@ -42,9 +42,6 @@ export default function Home() {
   ) : (
     <div className={styles.home}>
       <div>
-        <Searchbar />
-      </div>
-      <div>
         <NavbarPrincipal />
       </div>
 
@@ -52,6 +49,9 @@ export default function Home() {
         <NavbarFiltrosYOrdenamientos />
       </div>
       <div className={styles.container}>
+        <div className={styles.searchBarHome}>
+          <Searchbar />
+        </div>
         {currentCountries?.map((ele) => {
           return (
             <div className={styles.img} key={ele.id}>

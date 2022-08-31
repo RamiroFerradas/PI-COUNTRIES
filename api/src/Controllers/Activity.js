@@ -41,6 +41,7 @@ const postActivty = async (req, res) => {
   let { name, difficulty, duration, season, countries } = req.body;
   console.log(name, difficulty, duration, season, countries);
   try {
+    name = name[0].toUpperCase() + name.slice(1);
     const postActivity = await Activity.create({
       name,
       difficulty,
@@ -76,7 +77,6 @@ const updateActivity = async (req, res) => {
   let { id } = req.params;
   let { name, difficulty, duration, season, countries } = req.body;
   try {
-    console.log(countries);
     const updateAct = await Activity.update(
       {
         name,

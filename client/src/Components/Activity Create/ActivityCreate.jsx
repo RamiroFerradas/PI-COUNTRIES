@@ -25,14 +25,14 @@ export default function ActivityCreate() {
 
   let activities = useSelector((state) => state.activities);
 
-  const [name, setName] = useState("");
+  const [nameSearch, setNameSearch] = useState("");
 
   const [errors, setErrors] = useState({});
 
   const [input, setInput] = useState({
     name: "",
-    difficulty: 1,
-    duration: 0,
+    difficulty: "1",
+    duration: "0",
     season: [],
     countriesName: [],
     flag: [],
@@ -342,8 +342,8 @@ export default function ActivityCreate() {
             setErrors={setErrors}
             input={input}
             setInput={setInput}
-            name={name}
-            setName={setName}
+            nameSearch={nameSearch}
+            setNameSearch={setNameSearch}
             countriesA={countriesA}
             setCountriesA={setCountriesA}
           />
@@ -354,8 +354,8 @@ export default function ActivityCreate() {
             setErrors={setErrors}
             input={input}
             setInput={setInput}
-            name={name}
-            setName={setName}
+            nameSearch={nameSearch}
+            setNameSearch={setNameSearch}
             countriesA={countriesA}
             setCountriesA={setCountriesA}
           />
