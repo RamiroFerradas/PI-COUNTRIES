@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCountrie } from "../../../redux/actions/actions";
 import { getCountries } from "../../../redux/actions/countries";
+import styles from "../Selector Countries/SelectorCountries.module.css";
 
 export default function SelectorCountries({
   setInput,
@@ -23,46 +24,54 @@ export default function SelectorCountries({
   return (
     <div>
       {input.countries.length ? (
-        <div>
+        <div className={styles.bodySelector}>
           {input.countries?.map((ele) => {
             const actualCountry = countriesAux?.find((c) => c.id === ele);
             if (actualCountry) {
               return (
-                <div key={actualCountry.id}>
-                  <button
-                    onClick={() => {
-                      const countriesId = input.countries.filter(
-                        (c) => c !== ele
-                      );
+                <div
+                  key={actualCountry.id}
+                  className={styles.SelectorCountries}
+                >
+                  <div>
+                    <button
+                      className={styles.buttonDelete}
+                      onClick={() => {
+                        const countriesId = input.countries.filter(
+                          (c) => c !== ele
+                        );
 
-                      setInput((state) => {
-                        return {
-                          ...state,
-                          countries: countriesId,
-                        };
-                      });
-                      setErrors(
-                        validate({
-                          ...input,
-                          countries: input.countries.filter((x) => ele !== x),
-                        })
-                      );
+                        setInput((state) => {
+                          return {
+                            ...state,
+                            countries: countriesId,
+                          };
+                        });
+                        setErrors(
+                          validate({
+                            ...input,
+                            countries: input.countries.filter((x) => ele !== x),
+                          })
+                        );
 
-                      setCountriesA([...countriesA, actualCountry]);
+                        setCountriesA([...countriesA, actualCountry]);
 
-                      // dispatch(addCountrie(actualCountry));
-                      // dispatch(getCountries());
-                    }}
-                  >
-                    x
-                  </button>
-                  <img
-                    src={actualCountry.flag}
-                    alt={`${actualCountry.countries} flag`}
-                    width="100px"
-                    height="100px"
-                  />
-                  <span>{actualCountry.name}</span>
+                        // dispatch(addCountrie(actualCountry));
+                        // dispatch(getCountries());
+                      }}
+                    >
+                      ❌
+                    </button>
+                  </div>
+                  <div className={styles.cardSelectorCountrie}>
+                    <img
+                      src={actualCountry.flag}
+                      alt={`${actualCountry.countries} flag`}
+                      width="100px"
+                      height="100px"
+                    />
+                  </div>
+                  <span>{actualCountry.id}</span>
                 </div>
               );
             }

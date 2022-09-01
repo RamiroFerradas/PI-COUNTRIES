@@ -1,36 +1,171 @@
+.bodySearchAct {
+  /* border: red 1px solid; */
+  /* background-color: aqua; */
+  height: 60rem;
+  font-family: "Mulish", sans-serif;
+}
 .cardSearch {
-  float: left;
-  padding: 1.3em 3em;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  /* background-color: #fff; */
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  margin-right: 1rem;
+  -webkit-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  border-radius: 34px 34px 34px 34px;
+  -moz-border-radius: 34px 34px 34px 34px;
+  -webkit-border-radius: 34px 34px 34px 34px;
+  background-color: rgba(45, 43, 43, 0.495);
+  backdrop-filter: blur(3px);
+  overflow-x: scroll;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
   height: 10rem;
-  width: 12rem;
   overflow: hidden;
-  background-color: aqua;
+  width: 11rem;
+  float: left;
+  flex-direction: column;
+  background: none;
+  border: none;
+  /* margin-right: 1rem; */
+  /* margin-bottom: 1rem; */
+  margin-top: 3.5rem;
+  margin-left: 2rem;
+}
+
+.cardSearch:hover {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(255, 238, 16, 1);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(255, 238, 16, 1);
+  box-shadow: 0px 0px 10px 1px rgba(255, 238, 16, 1);
+  transition: 1s;
 }
 .imageSearch {
-  /* border-radius: 45px; */
-
-  overflow: hidden;
-  background: none;
+  color: antiquewhite;
+  font-size: 0.9rem;
+  text-align: center;
 }
 .imageSearch img {
-  /* background-color: rgb(184, 28, 28); */
+  /* border-radius: 10px; */
+  height: 6rem;
+  width: 11rem;
+  /* margin-right: 2rem; */
+  overflow: hidden;
+  object-fit: cover;
+  margin-bottom: 5px;
+  text-align: center;
 }
+
 .button {
   background: none;
-  height: 8rem;
-  width: 10rem;
-  overflow: hidden;
+  border: none;
+}
+.prueba {
+}
+
+.paginadoCreate {
+  top: 44rem;
+  right: 35rem;
+  position: fixed;
+}
+
+.boxSearch {
+  position: absolute;
+  width: 60rem;
+  margin: 12px 5px 30rem 13rem;
+  --accent-color: #ffd52d;
+  float: right;
+  background-color: rgba(89, 92, 76, 0);
+}
+
+.boxSearch:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.boxSearch:before,
+.boxSearch:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.boxSearch:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.boxSearch:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.boxSearch:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.boxSearch:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.boxSearch:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.inputSearch::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  /* color: #ffd52d; */
+  color: #ffd52d82;
+  font-family: "Mulish", sans-serif;
+  text-align: center;
+  align-items: center;
+}
+
+.boxSearch .inputSearch {
+  border-radius: 10px 10px 0px 0px #ffd52d;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: rgba(44, 44, 44, 0.202);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e872;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.boxSearch .inputSearch:focus,
+.boxSearch .inputSearch:active {
+  outline: none;
+}
+
+.boxSearch:focus-within .inputSearch,
+.boxSearch .inputSearch:focus,
+.boxSearch .inputSearch:active {
+  background-color: #353535;
+}
+
+.boxSearch:focus-within .inputSearch::placeholder {
+  opacity: 0;
+}
+
+.errorsSearch {
+  margin-top: 5rem;
+  position: absolute;
+  text-align: center;
+  margin-left: 15rem;
 }

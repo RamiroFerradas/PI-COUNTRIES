@@ -10,6 +10,7 @@ import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 import SelectorCountries from "./Selector Countries/SelectorCountries";
+import { cleanCache } from "../../redux/actions/actions";
 
 export default function ActivityCreate() {
   const dispatch = useDispatch();
@@ -118,6 +119,8 @@ export default function ActivityCreate() {
     if (/[^\w\s]/.test(input.name))
       errors.name =
         "El nombre de tu actividad no puede contener caracteres especiales";
+    if (/[1-9]/.test(input.name))
+      errors.name = "El nombre de tu actividad no puede contener numeros";
 
     //difficulty
     if (input.difficulty === 0)
@@ -154,9 +157,9 @@ export default function ActivityCreate() {
   useEffect(() => {
     if (
       input.name === "" ||
+      /[^\w\s]/.test(input.name) ||
       /[1-9]/.test(input.name) ||
       // /[\s]/.test(input.name) ||
-      /[^\w\s]/.test(input.name) ||
       input.difficulty.length < 1 ||
       input.difficulty.length > 10 ||
       input.duration.length < 1 ||
@@ -177,7 +180,7 @@ export default function ActivityCreate() {
   const handlerClear = () => {
     setInput({
       name: "",
-      difficulty: 0,
+      difficulty: "1",
       duration: 0,
       season: "",
       countriesName: [],
@@ -189,53 +192,56 @@ export default function ActivityCreate() {
     document.getElementsByClassName("form-check-input")[2].checked = false;
     document.getElementsByClassName("form-check-input")[3].checked = false;
   };
+  const cleanAndBack = (e) => {
+    e.preventDefault();
+    navigate("/activities");
+    // dispatch(cleanCache());
+  };
 
   return (
     <div>
-      <div>
-        <NavLink to="/home">
-          <div className="recarga">
-            <button className="cssbuttons-io-button">
-              <div className="icon">
-                <MdArrowBackIosNew />
-              </div>
-            </button>
-          </div>
-        </NavLink>
+      <div className={styles.navYButton}>
+        <div className={styles.divButton}>
+          <button
+            className={styles.buttonBack}
+            onClick={(e) => cleanAndBack(e)}
+          >
+            <MdArrowBackIosNew />
+          </button>
+        </div>
+        <div className={styles.navbarDetails}>
+          <NavbarPrincipal />
+        </div>
       </div>
-      <div>
-        <NavbarPrincipal />
-      </div>
-      <div>
+      {/* <div>
         <h1>ACTIVITY CREATOR </h1>
-      </div>
+      </div> */}
       <div>
         <div className={styles.primeraColumna}>
           <form action="">
-            <div className="input-group has-validation">
-              <span className="input-group-text">
+            {/* <span className="input-group-text">
                 <MdOutlineDriveFileRenameOutline />
-              </span>
-              <div class="form-floating is-invalid">
-                <input
-                  type="text"
-                  class="form-control is-invalid"
-                  id="floatingInputGroup2"
-                  placeholder="Name..."
-                  autoComplete="on"
-                  onChange={(e) => handleChangeInput(e)}
-                  value={input.name}
-                  name="name"
-                />
-                <label for="floatingInputGroup2" htmlFor="">
-                  Name
-                </label>
-              </div>
-              <div className="invalid-feedback">
-                {errors.name && <p>⚠ {errors.name}</p>}
+              </span> */}
+            <div className={styles.inputForm}>
+              <input
+                className={
+                  !errors.name ? styles.inputFormInput : styles.errorInput
+                }
+                type="text"
+                placeholder="Activitie Name..."
+                autoComplete="off"
+                onChange={(e) => handleChangeInput(e)}
+                value={input.name}
+                name="name"
+              />
+              <div>
+                {errors.name && (
+                  <p className={styles.errors}>⚠ {errors.name}</p>
+                )}
               </div>
             </div>
-            <div>
+
+            <div className={styles.inputDif}>
               <label htmlFor="">Difficulty: </label>
               <input
                 type="range"
@@ -246,7 +252,19 @@ export default function ActivityCreate() {
                 name="difficulty"
                 defaultValue="1"
               />
-              <div>
+              <label
+                className={
+                  input.difficulty === "1"
+                    ? styles.dif1
+                    : input.difficulty === "2"
+                    ? styles.dif2
+                    : input.difficulty === "3"
+                    ? styles.dif3
+                    : input.difficulty === "4"
+                    ? styles.dif4
+                    : styles.dif5
+                }
+              >
                 {input.difficulty === "1"
                   ? "Beginner"
                   : input.difficulty === "2"
@@ -256,7 +274,7 @@ export default function ActivityCreate() {
                   : input.difficulty === "4"
                   ? "Advanced"
                   : "Expert"}
-              </div>
+              </label>
 
               {/* <p>{input.difficulty}</p> */}
 
@@ -265,7 +283,7 @@ export default function ActivityCreate() {
               </div>
             </div>
 
-            <div>
+            <div className={styles.inputDur}>
               <label htmlFor="">Duration: </label>
               <input
                 type="range"
@@ -274,14 +292,16 @@ export default function ActivityCreate() {
                 value={input.duration}
                 name="duration"
               />
-              <p>{input.duration}</p>
+              <label>{input.duration}</label>
               <label>hs.</label>
               <div className={styles.errores}>
-                {errors.duration && <p>⚠ {errors.duration}</p>}
+                {errors.duration && (
+                  <p className={styles.errors}>⚠ {errors.duration}</p>
+                )}
               </div>
             </div>
           </form>
-          <div>
+          <div className={styles.inputSeas}>
             <label htmlFor="">Season: </label>
             <form onChange={(e) => handlerInputChek(e)}>
               <div className="form-check form-switch">
@@ -330,18 +350,22 @@ export default function ActivityCreate() {
               </div>
             </form>
             <div className={styles.errores}>
-              {errors.season && <p>⚠ {errors.season}</p>}
+              {errors.season && (
+                <p className={styles.errors}>⚠ {errors.season}</p>
+              )}
             </div>
           </div>
         </div>
       </div>
       <div className={styles.countries}>
-        <label htmlFor="">Countrie: </label>
+        <h3 htmlFor="">Select a country for your activity: </h3>
         <div className={styles.errores}>
-          {errors.countries && <p>⚠ {errors.countries}</p>}
+          {errors.countries && (
+            <p className={styles.errors}>⚠ {errors.countries}</p>
+          )}
         </div>
         <div className={styles.countriesSelected}>
-          <h3>Countries Selected:</h3>
+          <h5>Countries Selected:</h5>
           <SelectorCountries
             validate={validate}
             setErrors={setErrors}
@@ -356,6 +380,7 @@ export default function ActivityCreate() {
         <div className={styles.SearchCountries}>
           <SearchBarActivities
             validate={validate}
+            errors={errors}
             setErrors={setErrors}
             input={input}
             setInput={setInput}

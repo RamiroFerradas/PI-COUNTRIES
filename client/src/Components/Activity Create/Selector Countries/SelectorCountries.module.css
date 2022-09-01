@@ -1,0 +1,59 @@
+.SelectorCountries {
+  border: 0px solid #00000034;
+  background-color: rgba(45, 43, 43, 0.495);
+  backdrop-filter: blur(3px);
+  border: black 2px solid;
+  overflow-x: scroll;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  /* position: absolute; */
+  height: 7rem;
+  font-family: "Mulish", sans-serif;
+  width: 7rem;
+  float: left;
+  flex-direction: row;
+  background: none;
+  border: none;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  color: white;
+  transition: 1s;
+}
+.buttonDelete {
+  border-radius: 10px;
+  border: #ff1010 1px solid;
+  color: #ff1010;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+.cardSelectorCountrie {
+  transition: 1s;
+  /* object-fit: cover;
+  overflow: hidden; */
+  font-family: "Mulish", sans-serif;
+  width: 5rem;
+  -webkit-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+
+  box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  /* border-radius: 34px 34px 34px 34px;
+  -moz-border-radius: 34px 34px 34px 34px;
+  -webkit-border-radius: 34px 34px 34px 34px; */
+}
+.cardSelectorCountrie img {
+  height: 4rem;
+  width: 6rem;
+  margin-left: 6px;
+  border-radius: 25%;
+  /* object-fit: cover; */
+  /* overflow: hidden; */
+}
+.bodySelector {
+  background-color: red;
+}
