@@ -13,7 +13,7 @@ export default function OrderPoblacion() {
   return (
     <div className={styles.orderPop}>
       <label>Population Order</label>
-      <select name="" id="" onChange={(e) => handlerPopulation(e)}>
+      <select name="" id="selectPop" onChange={(e) => handlerPopulation(e)}>
         <option value="Default">Default</option>
         <option value="max">High Population</option>
         <option value="min">Low Population</option>

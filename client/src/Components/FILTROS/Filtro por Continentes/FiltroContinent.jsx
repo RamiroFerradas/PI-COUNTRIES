@@ -23,7 +23,7 @@ export default function FiltroContinent({ setActualFilter }) {
   return (
     <div className={styles.contenedorOrd}>
       <label htmlFor="">Filter By Continent</label>
-      <select name="" id="" onChange={(e) => handleContinent(e)}>
+      <select id="selectContinent" onChange={(e) => handleContinent(e)}>
         <option value="default">Default</option>
         {set?.map((ele) => {
           return (

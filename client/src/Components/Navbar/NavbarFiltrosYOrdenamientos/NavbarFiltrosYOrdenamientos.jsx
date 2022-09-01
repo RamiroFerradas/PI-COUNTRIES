@@ -1,32 +1,40 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import CantidadDePaginas from "../../Cantidad De Paginas/CantidadDePaginas";
+import React from "react";
 import Filtros from "../../FILTROS/Filtros";
 import Ordenamientos from "../../ORDENAMIENTOS/Ordenamientos";
-import Searchbar from "../../Searchbar/Searchbar";
 import styles from "../NavbarFiltrosYOrdenamientos/NavbarFiltrosYOrdenamientos.module.css";
 import { AiOutlineClear } from "react-icons/ai";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries } from "../../../redux/actions/countries";
 
 export default function NavbarFiltrosYOrdenamientos() {
-  const [selected, setSelected] = useState("");
+  const countries = useSelector((state) => state.countries);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [dispatch]);
+
   let handleClear = (e) => {
-    setSelected("Default");
+    document.getElementById("selectActivities").selectedIndex = 0;
+    document.getElementById("selectContinent").selectedIndex = 0;
+    document.getElementById("selectAz").selectedIndex = 0;
+    document.getElementById("selectPop").selectedIndex = 0;
+    dispatch(getCountries());
   };
+
   return (
     <div>
       <div>
-        <Filtros setSelected={setSelected} selected={selected} />
+        <Filtros />
       </div>
       <div>
         <Ordenamientos />
       </div>
       <div>
-        <button className={styles.buttonClear} onClick={(e) => handleClear(e)}>
+        <button className={styles.buttonClear} onClick={handleClear}>
           <AiOutlineClear />
         </button>
       </div>
     </div>
   );
 }
-
-//`btn btn-warning

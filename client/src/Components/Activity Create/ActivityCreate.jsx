@@ -193,11 +193,6 @@ export default function ActivityCreate() {
     document.getElementsByClassName("form-check-input")[2].checked = false;
     document.getElementsByClassName("form-check-input")[3].checked = false;
   };
-  const cleanAndBack = (e) => {
-    e.preventDefault();
-    navigate("/activities");
-    // dispatch(cleanCache());
-  };
 
   return (
     <div>

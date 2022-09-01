@@ -2,11 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions/actions";
 import styles from "../Filtro Axtividad Turistica/FiltroActividadTuristica.module.css";
+import { AiOutlineClear } from "react-icons/ai";
 
 export default function FiltroActividadTuristica({
   setActualFilter,
-  selected,
-  setSelected,
+  handleClear,
 }) {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
@@ -28,10 +28,7 @@ export default function FiltroActividadTuristica({
   return (
     <div className={styles.contenedorAct}>
       <label htmlFor="">Filter By Activities</label>
-      <select
-        // selected value={selected}
-        onChange={(e) => handleActivity(e)}
-      >
+      <select id="selectActivities" onChange={(e) => handleActivity(e)}>
         <option value="default">Default</option>
         {activitiesSet?.map((ele) => {
           return (

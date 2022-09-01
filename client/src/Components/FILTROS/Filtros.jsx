@@ -7,7 +7,7 @@ import FiltroActividadTuristica from "./Filtro Axtividad Turistica/FiltroActivid
 import FiltroContinent from "./Filtro por Continentes/FiltroContinent";
 import styles from "../FILTROS/Filtros.module.css";
 
-export default function Filtros({ setSelected, selected }) {
+export default function Filtros() {
   const dispatch = useDispatch();
 
   const [actualFilter, setActualFilter] = useState({
@@ -23,11 +23,7 @@ export default function Filtros({ setSelected, selected }) {
   return (
     <div className={styles.filtrosConteiner}>
       <div>
-        <FiltroActividadTuristica
-          selected={selected}
-          setSelected={setSelected}
-          setActualFilter={setActualFilter}
-        />
+        <FiltroActividadTuristica setActualFilter={setActualFilter} />
       </div>
 
       <div>
