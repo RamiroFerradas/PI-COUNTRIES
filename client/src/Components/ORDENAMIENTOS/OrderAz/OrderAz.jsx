@@ -18,7 +18,7 @@ export default function OrderAz() {
     <div className={styles.contenedorOrd}>
       <label>Alphabetical Order</label>
       <select name="" id="selectAz" onChange={(e) => handlerOrderAz(e)}>
-        <option value="default">All</option>
+        <option value="default">Default</option>
         <option value="asc">A-Z</option>
         <option value="dsc">D-Z</option>
       </select>
