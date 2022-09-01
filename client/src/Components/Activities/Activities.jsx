@@ -1,43 +1,24 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import { deleteActivity, getActivities } from "../../redux/actions/activities";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import styles from "../Activities/Activities.module.css";
-import { MdArrowBackIosNew } from "react-icons/md";
 import { getCountries } from "../../redux/actions/countries";
 
 export default function Activities() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const activities = useSelector((state) => state.activities);
   const countries = useSelector((state) => state.countries);
-
-  // const activitiesSet = Array.from(new Set(activities));
 
   useEffect(() => {
     dispatch(getActivities());
     dispatch(getCountries());
   }, [dispatch]);
 
-  const cleanAndBack = (e) => {
-    e.preventDefault();
-    navigate("/activities");
-    // dispatch(cleanCache());
-  };
-
   return (
     <div>
       <div className={styles.navYButton}>
-        {/* <div className={styles.divButton}>
-          <button
-            className={styles.buttonBack}
-            onClick={(e) => cleanAndBack(e)}
-          >
-            <MdArrowBackIosNew />
-          </button>
-        </div> */}
         <div className={styles.navbarDetails}>
           <NavbarPrincipal />
         </div>
@@ -92,8 +73,6 @@ export default function Activities() {
                       (c) => c.name === ele
                     );
                     if (actualCountry) {
-                      console.log(actualCountry, "aca");
-
                       return (
                         <div className={styles.countriesAct}>
                           <img
