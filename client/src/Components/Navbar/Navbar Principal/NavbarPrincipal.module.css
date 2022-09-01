@@ -94,9 +94,8 @@
   border-radius: 50%;
   opacity: 0;
   -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-
+  transform: translateX(325px);
+  -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin-left: 10rem;
 }
@@ -112,6 +111,22 @@
 .navMenu .Aa:nth-child(2):hover ~ .dot {
   -webkit-transform: translateX(230px);
   transform: translateX(230px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu .Aa:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(420px);
+  transform: translateX(420px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu .Aa:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(520);
+  transform: translateX(630px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;

@@ -62,12 +62,11 @@ export default function SearchBarActivities({
         </form>
         <i className="fas fa-search"></i>
         <div className={styles.errorsSearch}>
-          {input.name.length < 3 && (
-            <p>First you need to enter a name for your activity ⚠</p>
+          {errors.name && !input.name && (
+            <p>First you need to enter a name for your activity {`⚠`} </p>
           )}
         </div>
-      </div>
-
+      </div>{" "}
       <div className={styles.prueba}>
         {!errors.name && input.name && currentCountries.length
           ? currentCountries.map((ele) => {
@@ -128,11 +127,6 @@ export default function SearchBarActivities({
               );
             })
           : setCountriesA(searchCountries)}
-      </div>
-      <div className={styles.paginadoCreate}>
-        {nameSearch && (
-          <PaginadoActivitieCreate allCountries={countriesA.length} />
-        )}
       </div>
     </div>
   );

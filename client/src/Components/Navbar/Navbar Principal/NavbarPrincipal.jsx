@@ -43,12 +43,12 @@ export default function NavbarPrincipal() {
         <NavLink to="/activities" className={styles.Aa}>
           ACTIVITIES
         </NavLink>
-        {/* <a className={styles.Aa} href="#">
-          Work
-        </a>
-        <a className={styles.Aa} href="#">
-          About
-        </a> */}
+        <NavLink to="/create" className={styles.Aa}>
+          CREATE
+        </NavLink>
+        <NavLink to="/about" className={styles.Aa}>
+          ABOUT
+        </NavLink>
         <div className={styles.dot}></div>
       </nav>
     </div>

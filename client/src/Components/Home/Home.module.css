@@ -2,7 +2,6 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-around;
 }
 .img {
@@ -23,9 +22,11 @@
 }
 
 .container {
-  -webkit-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
-  -moz-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
-  box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  width: 90rem;
+  height: 44rem;
+  -webkit-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
+  -moz-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
+  box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
   border-radius: 34px 34px 34px 34px;
   -moz-border-radius: 34px 34px 34px 34px;
   -webkit-border-radius: 34px 34px 34px 34px;
@@ -38,11 +39,9 @@
   justify-content: flex-start;
   gap: 20px;
   position: relative;
-  width: 90rem;
-  height: 44rem;
   float: left;
   left: 26rem;
-  top: 4.6rem;
+  top: 2rem;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -79,9 +78,9 @@
 }
 
 .filterContainer {
-  -webkit-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
-  -moz-box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
-  box-shadow: 13px 20px 26px 5px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
+  -moz-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
+  box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
   border-radius: 34px 34px 34px 34px;
   -moz-border-radius: 34px 34px 34px 34px;
   -webkit-border-radius: 34px 34px 34px 34px;
@@ -90,8 +89,8 @@
   backdrop-filter: blur(3px);
   border: black 2px solid;
   /* max-height: 30rem; */
-  height: 40rem;
   width: 20rem;
+  height: 35rem;
   /* max-width: 30rem; */
   position: absolute;
   display: flex;
@@ -102,6 +101,6 @@
   /* font-family: "Fredoka One", cursive; */
   font-family: "Mulish", sans-serif;
   left: 2rem;
-  top: 10rem;
+  top: 6rem;
   color: white;
 }

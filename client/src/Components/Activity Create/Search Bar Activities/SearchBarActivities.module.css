@@ -60,9 +60,9 @@
 }
 
 .paginadoCreate {
-  top: 44rem;
-  right: 35rem;
-  position: fixed;
+  /* right: 35rem; */
+  top: 20rem;
+  position: relative;
 }
 
 .boxSearch {

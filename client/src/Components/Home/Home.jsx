@@ -40,38 +40,40 @@ export default function Home() {
   return load ? (
     <Loader />
   ) : (
-    <div className={styles.home}>
-      <div>
+    <div>
+      <div className={styles.navBarPrincipal}>
         <NavbarPrincipal />
       </div>
-
-      <div className={styles.filterContainer}>
-        <NavbarFiltrosYOrdenamientos />
-      </div>
-      <div className={styles.container}>
-        <div className={styles.searchBarHome}>
-          <Searchbar />
+      <div className={styles.home}>
+        <div className={styles.filterContainer}>
+          <NavbarFiltrosYOrdenamientos />
         </div>
-        {currentCountries?.map((ele) => {
-          return (
-            <div className={styles.img} key={ele.id}>
-              <ScrollContainer horizontal="true" className="scroll-container">
-                <Link className={styles.Link} to={`/countries/${ele.id}`}>
-                  <Card
-                    name={ele.name}
-                    flag={ele.flag}
-                    continent={ele.continent}
-                  />
-                </Link>
-              </ScrollContainer>
-            </div>
-          );
-        })}
+        <div className={styles.container}>
+          <div className={styles.searchBarHome}>
+            <Searchbar />
+          </div>
+          {currentCountries?.map((ele) => {
+            return (
+              <div className={styles.img} key={ele.id}>
+                <ScrollContainer horizontal="true" className="scroll-container">
+                  <Link className={styles.Link} to={`/countries/${ele.id}`}>
+                    <Card
+                      name={ele.name}
+                      flag={ele.flag}
+                      continent={ele.continent}
+                    />
+                  </Link>
+                </ScrollContainer>
+              </div>
+            );
+          })}
+        </div>
+        <div className={styles.paginado}>
+          <CantidadDePaginas className={styles.cantPage} />
+          <Paginado allCountries={allCountries.length} />
+        </div>
       </div>
-      <div className={styles.paginado}>
-        <CantidadDePaginas className={styles.cantPage} />
-        <Paginado allCountries={allCountries.length} />
-      </div>
+      ;
     </div>
   );
 }

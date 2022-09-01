@@ -11,6 +11,7 @@ import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 import SelectorCountries from "./Selector Countries/SelectorCountries";
 import { cleanCache } from "../../redux/actions/actions";
+import PaginadoActivitieCreate from "./Paginado Activitie Create/PaginadoActivitieCreate";
 
 export default function ActivityCreate() {
   const dispatch = useDispatch();
@@ -276,15 +277,13 @@ export default function ActivityCreate() {
                   : "Expert"}
               </label>
 
-              {/* <p>{input.difficulty}</p> */}
-
               <div className={styles.errores}>
                 {errors.difficulty && <p>⚠ {errors.difficulty}</p>}
               </div>
             </div>
 
             <div className={styles.inputDur}>
-              <label htmlFor="">Duration: </label>
+              <p htmlFor="">Duration: </p>
               <input
                 type="range"
                 max="24"
@@ -292,8 +291,8 @@ export default function ActivityCreate() {
                 value={input.duration}
                 name="duration"
               />
-              <label>{input.duration}</label>
-              <label>hs.</label>
+              <p>{input.duration} hs.</p>
+
               <div className={styles.errores}>
                 {errors.duration && (
                   <p className={styles.errors}>⚠ {errors.duration}</p>
@@ -311,7 +310,7 @@ export default function ActivityCreate() {
                   role="switch"
                   name="summer"
                   id="summer"
-                  value="summer"
+                  value="Summer"
                 />
                 <label htmlFor="summer">Summer.</label>
               </div>
@@ -322,7 +321,7 @@ export default function ActivityCreate() {
                   role="switch"
                   name="autumn"
                   id="autumn"
-                  value="autumn"
+                  value="Autumn"
                 />
                 <label htmlFor="autumn">Autumn.</label>
               </div>
@@ -333,7 +332,7 @@ export default function ActivityCreate() {
                   role="switch"
                   name="winter"
                   id="winter"
-                  value="winter"
+                  value="Winter"
                 />
                 <label htmlFor="winter">Winter.</label>
               </div>
@@ -344,30 +343,33 @@ export default function ActivityCreate() {
                   role="switch"
                   name="spring"
                   id="spring"
-                  value="spring"
+                  value="Spring"
                 />
                 <label htmlFor="spring">Spring.</label>
               </div>
             </form>
-            <div className={styles.errores}>
-              {errors.season && (
-                <p className={styles.errors}>⚠ {errors.season}</p>
-              )}
-            </div>
+          </div>
+          <div className={styles.errores}>
+            {errors.season && (
+              <p className={styles.errors}>⚠ {errors.season}</p>
+            )}
           </div>
         </div>
       </div>
       <div className={styles.countries}>
-        <h3 htmlFor="">Select a country for your activity: </h3>
-        <div className={styles.errores}>
-          {errors.countries && (
-            <p className={styles.errors}>⚠ {errors.countries}</p>
-          )}
+        <div className={styles.h3}>
+          <h3 htmlFor="">Select a country for your activity: </h3>
+          <div className={styles.errores}>
+            {errors.countries && (
+              <p className={styles.errors}>⚠ {errors.countries}</p>
+            )}
+          </div>
         </div>
         <div className={styles.countriesSelected}>
           <h5>Countries Selected:</h5>
           <SelectorCountries
             validate={validate}
+            errors={errors}
             setErrors={setErrors}
             input={input}
             setInput={setInput}
@@ -391,29 +393,23 @@ export default function ActivityCreate() {
           />
         </div>
       </div>
-      <div className={styles.buttonCreate}>
+      <div className={styles.paginadoCreate}>
+        {<PaginadoActivitieCreate allCountries={countriesA.length} />}
+      </div>
+      <div className={styles.buttons}>
         <button
           className={styles.buttonCreated1}
           disabled={disabledButton}
           onClick={(e) => handleChange(e)}
         >
-          CREATE
-          <div className={styles.iconCreated}>
-            <svg
-              height="24"
-              width="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 0h24v24H0z" fill="none"></path>
-              <path
-                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </div>
+          <span className={styles.button_top}> Add activitie</span>
         </button>
-        <button onClick={(e) => handlerClear(e)}>RESET</button>
+        <button
+          className={styles.buttonCreated2}
+          onClick={(e) => handlerClear(e)}
+        >
+          <span className={styles.button_top}> RESET</span>
+        </button>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ export default function SelectorCountries({
   validate,
   countriesA,
   setCountriesA,
+  errors,
 }) {
   let countriesAux = useSelector((state) => state.allCountries);
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function SelectorCountries({
 
   return (
     <div>
-      {input.countries.length ? (
+      {!errors.name && input.name && input.countries.length ? (
         <div className={styles.bodySelector}>
           {input.countries?.map((ele) => {
             const actualCountry = countriesAux?.find((c) => c.id === ele);
