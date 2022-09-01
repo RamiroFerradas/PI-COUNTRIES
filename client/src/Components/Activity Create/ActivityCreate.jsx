@@ -202,14 +202,14 @@ export default function ActivityCreate() {
   return (
     <div>
       <div className={styles.navYButton}>
-        <div className={styles.divButton}>
+        {/* <div className={styles.divButton}>
           <button
             className={styles.buttonBack}
             onClick={(e) => cleanAndBack(e)}
           >
             <MdArrowBackIosNew />
           </button>
-        </div>
+        </div> */}
         <div className={styles.navbarDetails}>
           <NavbarPrincipal />
         </div>

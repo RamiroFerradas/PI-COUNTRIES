@@ -1,9 +1,13 @@
 import React from "react";
+import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import styles from "./About.module.css";
 
 export default function About() {
   return (
     <div>
+      <div>
+        <NavbarPrincipal />
+      </div>
       <aside class="profile-card" id="test">
         <header>
           <a href="https://tutsplus.com">
