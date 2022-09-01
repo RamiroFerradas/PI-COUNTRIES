@@ -243,7 +243,7 @@ export default function ActivityCreate() {
             </div>
 
             <div className={styles.inputDif}>
-              <label htmlFor="">Difficulty: </label>
+              <p htmlFor="">Difficulty: </p>
               <input
                 type="range"
                 min="1"
@@ -301,7 +301,7 @@ export default function ActivityCreate() {
             </div>
           </form>
           <div className={styles.inputSeas}>
-            <label htmlFor="">Season: </label>
+            <p htmlFor="">Season: </p>
             <form onChange={(e) => handlerInputChek(e)}>
               <div className="form-check form-switch">
                 <input

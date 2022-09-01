@@ -131,8 +131,8 @@
 }
 
 .primeraColumna .inputForm {
-  margin-top: 2rem;
-  min-height: 7rem;
+  margin-top: 1.6rem;
+  min-height: 6.5rem;
   /* display: flex; */
   flex-direction: column;
   text-align: center;
@@ -148,6 +148,7 @@
   min-height: 9rem;
   width: 20rem;
   text-align: center;
+  margin-top: 0.8rem;
 }
 .inputDif input,
 .inputDur input {
@@ -158,6 +159,9 @@
 
   margin-left: 7rem;
 }
+.inputSeas p {
+  margin-left: 1.4rem;
+}
 /* .primeraColumna .inputForm {
   min-height: 5rem;
 } */
@@ -167,6 +171,7 @@
   font-size: 0.9rem;
   margin-top: 0.7rem;
   text-align: center;
+  text-shadow: 0 0 10px #719ece;
 }
 
 .dif1 {
