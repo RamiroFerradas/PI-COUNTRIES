@@ -1,6 +1,7 @@
 .bodyNav {
   background: #272727;
   font-family: "Montserrat", sans-serif;
+
   position: relative;
   height: 3.5rem;
   /* margin-top: 1rem; */
@@ -11,6 +12,11 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+.linkTitulo:hover,
+.linkTitulo {
+  text-decoration: none;
+  color: wheat;
 }
 /* .navMenu .Aa2, */
 .navMenu .Aa {
@@ -37,8 +43,13 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+.navMenu .Aa2:hover {
+  color: #fddb3a;
+}
+
 .navMenu .Aa2:hover .navMenu .Aa:hover {
   color: #fddb3a;
+  transition: 1s;
 }
 
 .navMenu .dot {
@@ -112,4 +123,11 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
+}
+.Titulo {
+  /* background-color: red; */
+  font-family: "Caveat", cursive;
+  /* font-family: "Fredoka One", cursive; */
+  color: wheat;
+  margin-left: 1rem;
 }

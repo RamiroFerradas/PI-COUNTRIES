@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-import { MdArrowBackIosNew } from "react-icons/md";
 import { useState } from "react";
 import styles from "../Activity Create/ActivityCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postCountrie } from "../../redux/actions/countries";
-import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 import SelectorCountries from "./Selector Countries/SelectorCountries";
-import { cleanCache } from "../../redux/actions/actions";
 import PaginadoActivitieCreate from "./Paginado Activitie Create/PaginadoActivitieCreate";
 
 export default function ActivityCreate() {
@@ -90,6 +87,9 @@ export default function ActivityCreate() {
       })
     );
     alert("Your activity has been successfully created!");
+    setTimeout(() => {
+      navigate("/activities");
+    }, 350);
     setInput({
       name: "",
       difficulty: 0,
@@ -99,10 +99,6 @@ export default function ActivityCreate() {
       flag: [],
       countries: [],
     });
-
-    setTimeout(() => {
-      navigate("/activities");
-    }, 200);
   };
 
   //validations
@@ -209,15 +205,10 @@ export default function ActivityCreate() {
           <NavbarPrincipal />
         </div>
       </div>
-      {/* <div>
-        <h1>ACTIVITY CREATOR </h1>
-      </div> */}
+
       <div>
         <div className={styles.primeraColumna}>
           <form action="">
-            {/* <span className="input-group-text">
-                <MdOutlineDriveFileRenameOutline />
-              </span> */}
             <div className={styles.inputForm}>
               <input
                 className={

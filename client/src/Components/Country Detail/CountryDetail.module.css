@@ -97,7 +97,7 @@
 
   width: 20rem;
   height: 40rem;
-  background-color: #21212160;
+  background-color: #2121219d;
   backdrop-filter: blur(2px);
   box-shadow: 15px 15px 30px #191919, -15px -15px 30px #292929;
   transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
@@ -115,4 +115,23 @@
   list-style: outside;
   /* list-style-type: upper-roman;
   list-style-position: inside; */
+}
+.labelDif {
+  color: wheat;
+  margin-right: 5px;
+}
+.dif1 {
+  color: rgb(7, 207, 0);
+}
+.dif2 {
+  color: rgb(187, 255, 0);
+}
+.dif3 {
+  color: rgb(238, 255, 0);
+}
+.dif4 {
+  color: rgb(250, 150, 1);
+}
+.dif5 {
+  color: rgb(255, 0, 0);
 }

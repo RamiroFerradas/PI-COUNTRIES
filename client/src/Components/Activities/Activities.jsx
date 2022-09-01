@@ -5,18 +5,22 @@ import { deleteActivity, getActivities } from "../../redux/actions/activities";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import styles from "../Activities/Activities.module.css";
 import { getCountries } from "../../redux/actions/countries";
+import Loader from "../Loader/Loader";
 
 export default function Activities() {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
   const countries = useSelector((state) => state.countries);
+  const loader = useSelector((state) => state.loader);
 
   useEffect(() => {
     dispatch(getActivities());
     dispatch(getCountries());
   }, [dispatch]);
 
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <div>
       <div className={styles.navYButton}>
         <div className={styles.navbarDetails}>
@@ -64,7 +68,6 @@ export default function Activities() {
                   {ele.season?.join(", ")}
                 </p>
                 <p>
-                  {" "}
                   <strong className={styles.labelDif}>Countries: </strong>
                 </p>
                 <div className={styles.cajaCountriesPP}>

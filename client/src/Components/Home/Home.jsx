@@ -7,7 +7,6 @@ import Card from "../Card/Card";
 import NavbarFiltrosYOrdenamientos from "../Navbar/NavbarFiltrosYOrdenamientos/NavbarFiltrosYOrdenamientos";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import Paginado from "../Paginado/Paginado";
-import { getActivities } from "../../redux/actions/activities";
 import Loader from "../Loader/Loader";
 import styles from "../Home/Home.module.css";
 import CantidadDePaginas from "../Cantidad De Paginas/CantidadDePaginas";

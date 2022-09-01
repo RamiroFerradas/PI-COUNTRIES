@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { NavLink, useMatch } from "react-router-dom";
+import { Link, NavLink, useMatch } from "react-router-dom";
 import styles from "../Navbar Principal/NavbarPrincipal.module.css";
 import { useState } from "react";
 
@@ -9,6 +9,11 @@ export default function NavbarPrincipal() {
 
   return (
     <div className={styles.bodyNav}>
+      <div className={styles.Titulo}>
+        <NavLink to="/home" className={styles.linkTitulo}>
+          <h1>Countries App</h1>
+        </NavLink>
+      </div>
       <nav className={styles.navMenu}>
         <NavLink
           to="/home"

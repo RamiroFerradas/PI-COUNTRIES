@@ -11,7 +11,9 @@ export default function FiltroActividadTuristica({
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
 
-  const activitiesSet = Array.from(new Set(activities?.map((ele) => ele.name)));
+  const activitiesSet = Array.from(
+    new Set(activities?.map((ele) => ele.name))
+  ).sort();
 
   const handleActivity = (e) => {
     e.preventDefault();

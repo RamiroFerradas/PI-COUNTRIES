@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../../../redux/actions/countries";
 
 export default function NavbarFiltrosYOrdenamientos() {
-  const countries = useSelector((state) => state.countries);
   const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries);
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);

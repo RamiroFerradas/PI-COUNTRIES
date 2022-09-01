@@ -25,19 +25,21 @@ export default function CountryDetail() {
     dispatch(cleanCache());
   };
 
-  let details = useSelector((state) => state.details);
+  const loader = useSelector((state) => state.loader);
 
+  let details = useSelector((state) => state.details);
+  console.log(details);
   return (
     <div>
       <div className={styles.navYButton}>
-        <div className={styles.divButton}>
+        {/* <div className={styles.divButton}>
           <button
             className={styles.buttonBack}
             onClick={(e) => cleanAndBack(e)}
           >
             <MdArrowBackIosNew />
           </button>
-        </div>
+        </div> */}
         <div className={styles.navbarDetails}>
           <NavbarPrincipal />
         </div>
@@ -57,10 +59,33 @@ export default function CountryDetail() {
                 <li>
                   <h4>{ele.name}:</h4>
                 </li>
-                <p>- Difficulty: {ele.difficulty}</p>
+                <p
+                  className={
+                    ele.difficulty === 1
+                      ? styles.dif1
+                      : ele.difficulty === 2
+                      ? styles.dif2
+                      : ele.difficulty === 3
+                      ? styles.dif3
+                      : ele.difficulty === 4
+                      ? styles.dif4
+                      : styles.dif5
+                  }
+                >
+                  <strong className={styles.labelDif}>Difficulty: </strong>
+                  {ele.difficulty === 1
+                    ? "Beginner"
+                    : ele.difficulty === 2
+                    ? "Amateur"
+                    : ele.difficulty === 3
+                    ? "Intermediate"
+                    : ele.difficulty === 4
+                    ? "Advanced"
+                    : "Expert"}
+                </p>
                 <p>
-                  Duration:
-                  {ele.duration}
+                  <strong className={styles.labelDif}>Duration: </strong>
+                  {ele.duration} hs.
                 </p>
               </div>
             );
