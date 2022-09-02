@@ -3,7 +3,7 @@ import axios from "axios";
 export function getCountries() {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/countries`)).data;
+      let json = (await axios(`/countries`)).data;
       return dispatch({
         type: "GET_COUNTRIES",
         payload: json,
@@ -20,7 +20,7 @@ export function getCountries() {
 export function getCountriesDetails(id) {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/countries/${id}`)).data;
+      let json = (await axios(`/countries/${id}`)).data;
       return dispatch({
         type: "GET_COUNTRIES_DETAILS",
         payload: json,
@@ -44,8 +44,7 @@ export function searchCountrieGlobal(name) {
 export function searchCountrie(name) {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/countries?name=${name}`))
-        .data;
+      let json = (await axios(`/countries?name=${name}`)).data;
 
       return dispatch({
         type: "SEARCH_COUNTRIE",
@@ -60,8 +59,7 @@ export function searchCountrie(name) {
 export function postCountrie(payload) {
   return async function (dispatch) {
     try {
-      let json = (await axios.post(`http://localhost:3001/activities`, payload))
-        .data;
+      let json = (await axios.post(`/activities`, payload)).data;
       return dispatch({
         type: "POST_COUNTRIE",
         payload: json,

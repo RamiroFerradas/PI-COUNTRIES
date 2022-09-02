@@ -28,9 +28,7 @@ export function filters(payload) {
 
 export function filterActivity(name) {
   return async function (dispatch) {
-    const json = await axios.get(
-      `http://localhost:3001/activities?name=${name}`
-    );
+    const json = await axios.get(`/activities?name=${name}`);
     return dispatch({
       type: "ACTIVITY_BY_NAME",
       payload: json.data,

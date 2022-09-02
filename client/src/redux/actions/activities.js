@@ -3,7 +3,7 @@ import axios from "axios";
 export function getActivities() {
   return async function (dispatch) {
     try {
-      let json = (await axios(`http://localhost:3001/activities`)).data;
+      let json = (await axios(`/activities`)).data;
       return dispatch({
         type: "GET_ACTIVITIES",
         payload: json,
@@ -19,8 +19,7 @@ export function getActivities() {
 export function deleteActivity(id) {
   return async function (dispatch) {
     try {
-      let json = (await axios.delete(`http://localhost:3001/activities/${id}`))
-        .data;
+      let json = (await axios.delete(`/activities/${id}`)).data;
       return dispatch({
         type: "DELETE_ACTIVITIES",
         payload: json,
