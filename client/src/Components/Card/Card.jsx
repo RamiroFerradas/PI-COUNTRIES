@@ -7,7 +7,7 @@ export default function Card({ name, flag, continent }) {
       <h5>{name}</h5>
       <p> {continent}</p>
       {/* <p>Continent: {continent}</p> */}
-      <img width="150px" height="100px" src={flag} alt={name} />
+      <img className={styles.imagen} src={flag} alt={name} />
     </div>
   );
 }

@@ -176,3 +176,14 @@
 .ButtonDelete:active .icon svg {
   transform: scale(0.8);
 }
+@media screen and (max-width: 1400px) {
+  /* .cajaActivitie {
+    width: 10rem;
+    height: 20rem;
+  } */
+  .bodyActivities {
+    float: left;
+    margin-right: 1rem;
+    margin-left: 2rem;
+  }
+}

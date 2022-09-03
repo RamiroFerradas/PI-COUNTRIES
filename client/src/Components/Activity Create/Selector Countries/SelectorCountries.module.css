@@ -54,6 +54,31 @@
   /* object-fit: cover; */
   /* overflow: hidden; */
 }
-.bodySelector {
-  background-color: red;
+.buttonClearAll {
+  background: #ffee10;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 9px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  margin-bottom: 8rem;
+  float: right;
+  position: absolute;
+  margin-left: 30rem;
+  top: 1.5rem;
+}
+.buttonClearAll:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+@media screen and (max-width: 1400px) {
+  .SelectorCountries {
+    margin-left: 1rem;
+  }
+  .buttonClearAll {
+    margin-left: 21rem;
+  }
 }

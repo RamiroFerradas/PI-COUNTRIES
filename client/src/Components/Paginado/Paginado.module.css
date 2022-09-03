@@ -13,3 +13,12 @@
   font-size: 1.2rem;
   transition: 0.3s;
 }
+
+@media screen and (max-width: 1400px) {
+  .buttonPaged2:disabled,
+  .button:disabled,
+  .buttonPaged2,
+  .button {
+    font-size: 0.8rem;
+  }
+}

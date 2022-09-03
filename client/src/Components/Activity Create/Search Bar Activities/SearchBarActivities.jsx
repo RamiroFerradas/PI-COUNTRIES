@@ -8,6 +8,7 @@ import styles from "../Search Bar Activities/SearchBarActivities.module.css";
 import CardCreateActivitie from "../Card Create Activitie/CardCreateActivitie";
 import PaginadoActivitieCreate from "../Paginado Activitie Create/PaginadoActivitieCreate";
 import { useState } from "react";
+import { getCountries } from "../../../redux/actions/countries";
 
 export default function SearchBarActivities({
   input,
@@ -41,6 +42,8 @@ export default function SearchBarActivities({
     const filt = countriesA.filter((ele) =>
       ele.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
+    console.log(e.target.value);
+    if (e.target.value === "") return setCountriesA(searchCountries);
     setNameSearch(e.target.value.toLowerCase());
     setCountriesA(filt);
     // dispatch(searchCountrie(nameSearch));
@@ -56,7 +59,6 @@ export default function SearchBarActivities({
             type="search"
             placeholder="Search Countrie . . . "
             onChange={(e) => handleSearchCountries(e)}
-            // class="limpiarinput"
             disabled={input.name.length < 3 ? true : false}
           />
         </form>
@@ -66,7 +68,7 @@ export default function SearchBarActivities({
             <p>First you need to enter a name for your activity {`⚠`} </p>
           )}
         </div>
-      </div>{" "}
+      </div>
       <div className={styles.prueba}>
         {!errors.name && input.name && currentCountries.length
           ? currentCountries.map((ele) => {

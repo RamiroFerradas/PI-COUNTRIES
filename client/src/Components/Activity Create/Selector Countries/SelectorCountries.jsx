@@ -22,10 +22,29 @@ export default function SelectorCountries({
     dispatch(getCountries());
   }, [dispatch]);
 
+  const handlerClearAll = (e) => {
+    setInput((state) => {
+      return {
+        ...state,
+        countries: [],
+      };
+    });
+    setCountriesA(countriesAux);
+  };
+
   return (
     <div>
+      <h5>Countries Selected:</h5>
       {!errors.name && input.name && input.countries.length ? (
         <div className={styles.bodySelector}>
+          <div>
+            <button
+              onClick={(e) => handlerClearAll(e)}
+              className={styles.buttonClearAll}
+            >
+              <span className={styles.button_top}> CLEAR SELECTED</span>
+            </button>
+          </div>
           {input.countries?.map((ele) => {
             const actualCountry = countriesAux?.find((c) => c.id === ele);
             if (actualCountry) {

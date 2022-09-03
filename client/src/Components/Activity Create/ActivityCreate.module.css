@@ -90,6 +90,7 @@
   align-items: center;
   color: #ffee10;
 }
+
 .inputFormInput {
   background-color: rgba(89, 92, 76, 0.192);
   display: flex;
@@ -115,6 +116,7 @@
   text-align: center;
   align-items: center;
   border: 1px solid red;
+  outline: none !important;
 }
 .errorInput:focus {
   outline: none !important;
@@ -241,4 +243,94 @@
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
   margin-top: 2rem;
+}
+.buttonClearAll {
+  background: #ffee10;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 10px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  margin-bottom: 8rem;
+  float: right;
+}
+.buttonClearAll:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+@media screen and (max-width: 1400px) {
+  .primeraColumna {
+    width: 15rem;
+    height: 29rem;
+    margin-top: 1.5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    font-size: 0.85rem;
+    line-height: 11px;
+  }
+
+  .countries {
+    margin-top: 1.5rem;
+    width: 60rem;
+    height: 31.5rem;
+    margin-right: 2rem;
+  }
+
+  .paginadoCreate {
+    right: 30rem;
+    top: 37.4rem;
+    position: fixed;
+    color: wheat;
+  }
+
+  .inputFormInput {
+    width: 9rem;
+  }
+  .primeraColumna .inputForm {
+    margin-top: 0.8rem;
+    min-height: 5rem;
+  }
+  .primeraColumna .inputDif {
+    min-height: 6rem;
+    width: 12rem;
+    margin-left: 1.6rem;
+  }
+  .primeraColumna .inputDur {
+    min-height: 6rem;
+    width: 20rem;
+    margin-left: -2.5rem;
+    text-align: center;
+    margin-top: 0.1rem;
+  }
+  .primeraColumna .inputSeas {
+    min-height: 1rem;
+
+    margin-left: 5rem;
+  }
+
+  .errors {
+    font-size: 0.7rem;
+  }
+  .errorInput {
+    width: 9rem;
+  }
+  .inputFormInput::placeholder {
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+  }
+  .errorInput::placeholder {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .buttons {
+    margin-left: 4rem;
+  }
+  .buttonCreated1:disabled,
+  .buttonCreated1:enabled,
+  .buttonCreated2 {
+    font-size: 10px;
+  }
 }

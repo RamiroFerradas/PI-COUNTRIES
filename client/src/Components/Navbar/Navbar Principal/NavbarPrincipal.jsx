@@ -1,12 +1,8 @@
-import React, { useRef } from "react";
-import { Link, NavLink, useMatch } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../Navbar Principal/NavbarPrincipal.module.css";
-import { useState } from "react";
 
 export default function NavbarPrincipal() {
-  const [active, setActive] = useState("");
-  // const match = useMatch();
-
   return (
     <div className={styles.bodyNav}>
       <div className={styles.Titulo}>

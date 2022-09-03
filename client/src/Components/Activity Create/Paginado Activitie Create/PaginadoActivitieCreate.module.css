@@ -4,13 +4,24 @@
   color: #ffef10d0;
   border: 1px solid #ffef1047;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 .buttonPaged2:disabled,
 .button:disabled {
   border-radius: 10px;
   color: #4c4a4a;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   transition: 0.3s;
+}
+
+@media screen and (max-width: 1400px) {
+  .buttonPaged2,
+  .button {
+    font-size: 0.9rem;
+  }
+  .buttonPaged2:disabled,
+  .button:disabled {
+    font-size: 0.9rem;
+  }
 }

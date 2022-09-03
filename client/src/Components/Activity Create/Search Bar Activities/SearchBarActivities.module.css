@@ -18,8 +18,8 @@
   justify-content: center;
   gap: 20px;
   height: 10rem;
-  overflow: hidden;
   width: 11rem;
+  overflow: hidden;
   float: left;
   flex-direction: column;
   background: none;
@@ -55,8 +55,6 @@
 .button {
   background: none;
   border: none;
-}
-.prueba {
 }
 
 .paginadoCreate {
@@ -178,4 +176,35 @@
   position: absolute;
   text-align: center;
   margin-left: 15rem;
+  color: red;
+}
+
+@media screen and (max-width: 1400px) {
+  .boxSearch {
+    width: 40rem;
+    margin: 12px 5px 30rem 10rem;
+  }
+  .cardSearch {
+    height: 7em;
+    width: 8rem;
+    /* background-color: red; */
+    overflow: hidden;
+    margin-top: 5rem;
+    margin-left: 0.5rem;
+  }
+  .imageSearch img {
+    font-size: 1px;
+    /* border-radius: 10px; */
+    height: 5rem;
+    width: 8rem;
+    /* margin-right: 2rem; */
+    overflow: hidden;
+    object-fit: cover;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .errorsSearch {
+    margin-left: 7rem;
+    margin-top: 4rem;
+  }
 }

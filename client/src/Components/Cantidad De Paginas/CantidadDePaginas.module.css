@@ -17,3 +17,9 @@
 
   cursor: pointer;
 }
+@media screen and (max-width: 1400px) {
+  .containerPages {
+    font-size: 0.9rem;
+    margin-right: 2rem;
+  }
+}

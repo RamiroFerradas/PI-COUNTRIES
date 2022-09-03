@@ -1,7 +1,6 @@
 .bodyNav {
   background: #272727;
   font-family: "Montserrat", sans-serif;
-
   position: relative;
   height: 3.5rem;
   /* margin-top: 1rem; */
@@ -58,8 +57,8 @@
   background: #fddb3a;
   border-radius: 50%;
   opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(325px);
+  /* -webkit-transform: translateX(30px);
+  transform: translateX(325px); */
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin-left: 10rem;
@@ -130,4 +129,66 @@
   /* font-family: "Fredoka One", cursive; */
   color: wheat;
   margin-left: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .navMenu {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .navMenu .Aa2,
+  .navMenu .Aa {
+    font-size: 1em;
+    width: 50px;
+    margin-left: 6rem;
+  }
+  .navMenu .Aa:nth-child(1) ~ .dot {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+  .navMenu .Aa2:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+
+  .navMenu .Aa:nth-child(2) ~ .dot {
+    -webkit-transform: translateX(125px);
+    transform: translateX(125px);
+  }
+  .navMenu .Aa2:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(125px);
+    transform: translateX(125px);
+  }
+
+  .navMenu .Aa:nth-child(3) ~ .dot {
+    -webkit-transform: translateX(260px);
+    transform: translateX(260px);
+  }
+  .navMenu .Aa2:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(260px);
+    transform: translateX(260px);
+  }
+
+  .navMenu .Aa:nth-child(4) ~ .dot {
+    -webkit-transform: translateX(400px);
+    transform: translateX(400px);
+  }
+  .navMenu .Aa2:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(400px);
+    transform: translateX(400px);
+  }
+  .navMenu .dot {
+    -webkit-transform: translateX(193px);
+    transform: translateX(193px);
+  }
+  .bodyNav {
+    height: 3rem;
+  }
+  .navMenu {
+    top: 1.5rem;
+  }
 }

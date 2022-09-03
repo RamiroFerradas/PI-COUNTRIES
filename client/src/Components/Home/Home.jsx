@@ -10,7 +10,6 @@ import Paginado from "../Paginado/Paginado";
 import Loader from "../Loader/Loader";
 import styles from "../Home/Home.module.css";
 import CantidadDePaginas from "../Cantidad De Paginas/CantidadDePaginas";
-import ScrollContainer from "react-indiana-drag-scroll";
 import Searchbar from "../Searchbar/Searchbar";
 
 export default function Home() {
@@ -54,15 +53,13 @@ export default function Home() {
           {currentCountries?.map((ele) => {
             return (
               <div className={styles.img} key={ele.id}>
-                <ScrollContainer horizontal="true" className="scroll-container">
-                  <Link className={styles.Link} to={`/countries/${ele.id}`}>
-                    <Card
-                      name={ele.name}
-                      flag={ele.flag}
-                      continent={ele.continent}
-                    />
-                  </Link>
-                </ScrollContainer>
+                <Link className={styles.Link} to={`/countries/${ele.id}`}>
+                  <Card
+                    name={ele.name}
+                    flag={ele.flag}
+                    continent={ele.continent}
+                  />
+                </Link>
               </div>
             );
           })}

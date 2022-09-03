@@ -352,7 +352,6 @@ export default function ActivityCreate() {
           </div>
         </div>
         <div className={styles.countriesSelected}>
-          <h5>Countries Selected:</h5>
           <SelectorCountries
             validate={validate}
             errors={errors}
