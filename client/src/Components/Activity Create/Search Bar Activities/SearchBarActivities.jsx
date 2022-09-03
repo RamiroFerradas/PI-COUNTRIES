@@ -57,7 +57,7 @@ export default function SearchBarActivities({
           <input
             className={`limpiarinput ${styles.inputSearch}`}
             type="search"
-            placeholder="Search Countrie . . . "
+            placeholder="Search Country . . . "
             onChange={(e) => handleSearchCountries(e)}
             disabled={input.name.length < 3 ? true : false}
           />

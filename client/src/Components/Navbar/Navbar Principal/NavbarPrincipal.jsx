@@ -11,6 +11,7 @@ export default function NavbarPrincipal() {
         </NavLink>
       </div>
       <nav className={styles.navMenu}>
+        {/* <div> */}
         <NavLink
           to="/home"
           className={({ isActive }) => (isActive ? styles.Aa : styles.Aa2)}
@@ -36,6 +37,7 @@ export default function NavbarPrincipal() {
         >
           ABOUT
         </NavLink>
+        {/* </div> */}
         <div className={styles.dot}></div>
       </nav>
     </div>
