@@ -213,7 +213,7 @@
     max-width: 24rem;
     margin-left: 0rem;
     left: 1rem;
-    height: 48rem;
+    height: 47rem;
   }
   .img {
     justify-content: flex-start;
@@ -225,6 +225,15 @@
     margin-bottom: 5rem;
     margin-top: 1rem;
     line-height: 1px;
+  }
+  .paginado2 {
+    display: flex;
+    position: absolute;
+    /* background-color: red; */
+    top: 96.5%;
+    left: 39%;
+    width: 8rem;
+    height: 1rem;
   }
 
   .searchBarHome {

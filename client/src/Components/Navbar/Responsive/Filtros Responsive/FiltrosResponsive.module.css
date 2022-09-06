@@ -1,5 +1,6 @@
 .bodyNavResp {
   background: #272727;
+  backdrop-filter: (1px);
   display: grid;
   grid-template-rows: 1fr;
   align-items: center;
@@ -17,14 +18,21 @@
   background: none;
   margin-right: 0.5rem;
 }
+.menu {
+  background: none;
+  margin-right: 0.5rem;
+}
 
 .menu .menuButton {
-  color: #fddb3a;
+  color: wheat;
   background: none;
   border: 1px solid #373636;
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+.menu .menuButton:focus {
+  color: #fddb3a;
 }
 .divSearch {
   width: 18rem;
@@ -38,7 +46,8 @@
   overflow: hidden;
   float: right;
   overflow: hidden;
-  background: #272727 !important;
+  background: #272727df !important;
+  backdrop-filter: blur(3px) !important;
   text-decoration: none;
   align-items: center !important;
   justify-content: center !important;
@@ -70,4 +79,21 @@
   font-weight: 500;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+.buttonClear {
+  background-color: rgba(89, 92, 76, 0.192);
+  position: absolute;
+  border-radius: 15px;
+  bottom: 10rem;
+  margin-left: 1rem;
+  z-index: 100;
+  background-color: rgb(44, 44, 44);
+  color: #ffee10;
+
+  padding: 0.8rem;
+}
+.buttonClear :hover {
+  color: #ffee10;
+  /* box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10; */
 }

@@ -1,6 +1,7 @@
 .bodyNavResp {
   /* background: #272727; */
-
+  display: grid;
+  grid-template-rows: 1fr;
   z-index: 99;
   max-height: 3.5rem;
   height: 3.5rem;
@@ -17,20 +18,25 @@
 }
 
 .menu .menuButton {
-  color: #fddb3a;
+  color: wheat;
   background: none;
   border: 1px solid #373636;
   width: 100%;
   align-items: center;
   justify-content: center;
-  z-index: 99;
+}
+
+.menu .menuButton:hover,
+.menu .menuButton:focus {
+  color: #fddb3a;
 }
 
 .opciones2 {
   overflow: hidden;
   float: right;
   overflow: hidden;
-  background: #272727 !important;
+  background: #272727e8 !important;
+  backdrop-filter: blur(3px) !important;
   text-decoration: none;
   align-items: center !important;
   justify-content: center !important;
