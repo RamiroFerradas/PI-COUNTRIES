@@ -160,18 +160,14 @@
     /* margin-bottom: 2rem; */
   }
   .divImg img {
-    /* border-radius: 10%; */
-    /* height: 10rem;
-    width: 15rem; */
+    border-radius: 10%;
+    height: 8rem;
+    width: 15rem;
     /* margin-left: 32rem; */
   }
   .divMapa {
-    /* margin-top: 2rem;
-    margin-bottom: 15rem;
-    margin-left: 2rem; */
-    /* height: 40rem;
-    width: 28rem; */
-    /* align-items: flex-start; */
+    height: 20rem;
+    width: 28rem;
   }
   .buttonCreated1 {
     margin-top: 30rem;
