@@ -52,6 +52,7 @@
   flex-direction: column;
   float: right;
   text-align: center;
+  position: relative;
   margin-top: 2rem;
   margin-right: 1rem;
   margin-left: 1rem;
@@ -86,6 +87,7 @@
   width: 5rem;
   margin-left: 6px;
   border-radius: 25%;
+  position: relative;
 }
 
 .dif1 {
@@ -110,9 +112,10 @@
 
 /* button delete*/
 .divButtonDelete {
-  margin-top: 2rem;
+  margin-top: 27rem;
   margin-left: 4rem;
   height: 2rem;
+  position: absolute;
 }
 
 .ButtonDelete {

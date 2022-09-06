@@ -11,14 +11,14 @@ export default function Activities() {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
   const countries = useSelector((state) => state.countries);
-  const loader = useSelector((state) => state.loader);
+  let load = useSelector((state) => state.loader);
 
   useEffect(() => {
     dispatch(getActivities());
     dispatch(getCountries());
   }, [dispatch]);
 
-  return loader ? (
+  return load ? (
     <Loader />
   ) : (
     <div>

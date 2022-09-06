@@ -11,6 +11,7 @@ import Loader from "../Loader/Loader";
 import styles from "../Home/Home.module.css";
 import CantidadDePaginas from "../Cantidad De Paginas/CantidadDePaginas";
 import Searchbar from "../Searchbar/Searchbar";
+import PaginadoActivitieCreate from "../Activity Create/Paginado Activitie Create/PaginadoActivitieCreate";
 
 export default function Home() {
   let dispatch = useDispatch();
@@ -50,23 +51,32 @@ export default function Home() {
           <div className={styles.searchBarHome}>
             <Searchbar />
           </div>
-          {currentCountries?.map((ele) => {
-            return (
-              <div className={styles.img} key={ele.id}>
-                <Link className={styles.Link} to={`/countries/${ele.id}`}>
-                  <Card
-                    name={ele.name}
-                    flag={ele.flag}
-                    continent={ele.continent}
-                  />
-                </Link>
-              </div>
-            );
-          })}
+          {allCountries.length ? (
+            currentCountries?.map((ele) => {
+              return (
+                <div className={styles.img} key={ele.id}>
+                  <Link className={styles.Link} to={`/countries/${ele.id}`}>
+                    <Card
+                      name={ele.name}
+                      flag={ele.flag}
+                      continent={ele.continent}
+                    />
+                  </Link>
+                </div>
+              );
+            })
+          ) : (
+            <div className={styles.noMatch}>
+              <p>The search does not coincide with any country</p>
+            </div>
+          )}
         </div>
         <div className={styles.paginado}>
           <CantidadDePaginas className={styles.cantPage} />
           <Paginado allCountries={allCountries.length} />
+        </div>
+        <div className={styles.paginado2}>
+          <PaginadoActivitieCreate allCountries={allCountries.length} />
         </div>
       </div>
       ;

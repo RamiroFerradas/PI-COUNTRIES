@@ -2,24 +2,27 @@
   background: #272727;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  height: 3.5rem;
-  /* margin-top: 1rem; */
-  min-height: 1rem;
+  min-height: 2rem;
 }
 .navMenu {
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  /* max-height: 5rem; */
-  /* background-color: red; */
+  max-height: 2rem;
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 .linkTitulo:hover,
 .linkTitulo {
   text-decoration: none;
   color: wheat;
 }
+
 /* .navMenu .Aa2, */
 .navMenu .Aa {
   color: #fddb3a;
@@ -27,27 +30,33 @@
   display: flex;
   flex-direction: row;
   /* flex-wrap: wrap; */
+  /* font-size: 1.2em; */
+  font-size: 2vh;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 2vh;
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
   max-width: 80px;
-  max-height: 1rem;
+  max-height: 2rem;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  gap: 8rem;
 }
 .navMenu .Aa2 {
   color: #f6f4e6;
   margin-left: 8rem;
+  gap: 8rem;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 2vh;
+  /* font-size: 1.2em; */
   text-transform: uppercase;
   font-weight: 500;
   display: inline-block;
-  width: 80px;
+  max-width: 80px;
+  max-height: 2rem;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -70,49 +79,52 @@
   transform: translateX(325px); */
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.2s ease-in-out;
-  margin-left: 10rem;
+  /* margin-left: 10rem; */
+  position: absolute;
+  margin-right: 32rem;
+  top: 2rem;
 }
 
 .navMenu .Aa:nth-child(1) ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
+  -webkit-transform: translateX(35px);
+  transform: translateX(35px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 .navMenu .Aa2:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
+  -webkit-transform: translateX(35px);
+  transform: translateX(35px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu .Aa:nth-child(2) ~ .dot {
-  -webkit-transform: translateX(230px);
-  transform: translateX(230px);
+  -webkit-transform: translateX(240px);
+  transform: translateX(240px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 .navMenu .Aa2:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(230px);
-  transform: translateX(230px);
+  -webkit-transform: translateX(240px);
+  transform: translateX(240px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 
 .navMenu .Aa:nth-child(3) ~ .dot {
-  -webkit-transform: translateX(420px);
-  transform: translateX(420px);
+  -webkit-transform: translateX(435px);
+  transform: translateX(435px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
 .navMenu .Aa2:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(420px);
-  transform: translateX(420px);
+  -webkit-transform: translateX(435px);
+  transform: translateX(435px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
@@ -133,73 +145,69 @@
   opacity: 1;
 }
 .Titulo {
-  /* background-color: red; */
   font-family: "Caveat", cursive;
-  /* font-family: "Fredoka One", cursive; */
   color: wheat;
   margin-left: 1rem;
+  font-weight: 200;
 }
 
 @media screen and (max-width: 1400px) {
-  .navMenu {
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  .navMenu .dot {
+    top: 1.4rem;
+    margin-right: 16rem;
+    width: 5px;
+    height: 5px;
   }
 
   .navMenu .Aa2,
   .navMenu .Aa {
-    font-size: 1em;
     width: 50px;
     margin-left: 6rem;
   }
   .navMenu .Aa:nth-child(1) ~ .dot {
-    -webkit-transform: translateX(-9px);
-    transform: translateX(-9px);
+    -webkit-transform: translateX(-25px);
+    transform: translateX(-25px);
   }
   .navMenu .Aa2:nth-child(1):hover ~ .dot {
-    -webkit-transform: translateX(-9px);
-    transform: translateX(-9px);
+    -webkit-transform: translateX(-25px);
+    transform: translateX(-25px);
   }
 
   .navMenu .Aa:nth-child(2) ~ .dot {
-    -webkit-transform: translateX(125px);
-    transform: translateX(125px);
+    -webkit-transform: translateX(120px);
+    transform: translateX(115px);
   }
   .navMenu .Aa2:nth-child(2):hover ~ .dot {
-    -webkit-transform: translateX(125px);
-    transform: translateX(125px);
+    -webkit-transform: translateX(120px);
+    transform: translateX(115px);
   }
 
   .navMenu .Aa:nth-child(3) ~ .dot {
-    -webkit-transform: translateX(260px);
-    transform: translateX(260px);
+    -webkit-transform: translateX(250px);
+    transform: translateX(250px);
   }
   .navMenu .Aa2:nth-child(3):hover ~ .dot {
-    -webkit-transform: translateX(260px);
-    transform: translateX(260px);
+    -webkit-transform: translateX(250px);
+    transform: translateX(250px);
   }
 
   .navMenu .Aa:nth-child(4) ~ .dot {
-    -webkit-transform: translateX(400px);
-    transform: translateX(400px);
+    -webkit-transform: translateX(395px);
+    transform: translateX(395px);
   }
   .navMenu .Aa2:nth-child(4):hover ~ .dot {
-    -webkit-transform: translateX(400px);
-    transform: translateX(400px);
+    -webkit-transform: translateX(395px);
+    transform: translateX(395px);
   }
   .navMenu .dot {
-    -webkit-transform: translateX(193px);
-    transform: translateX(193px);
+    -webkit-transform: translateX(185px);
+    transform: translateX(185px);
   }
   .bodyNav {
-    height: 3rem;
-
+    height: 2.8rem;
     min-width: 100%;
   }
   .navMenu {
-    top: 1.5rem;
+    top: 1.2rem;
   }
 }
