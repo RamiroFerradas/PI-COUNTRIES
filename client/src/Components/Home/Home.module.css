@@ -202,18 +202,19 @@
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 450px) {
   .home {
     grid-template-rows: 1fr;
+    position: fixed;
   }
   .filterContainer {
     display: none;
   }
   .container {
-    max-width: 24rem;
-    margin-left: 0rem;
-    left: 1rem;
-    height: 47rem;
+    max-width: 22rem;
+    /* margin-left: 1rem; */
+    left: 0.8rem;
+    height: 35em;
   }
   .img {
     justify-content: flex-start;
@@ -221,7 +222,7 @@
     -webkit-box-reflect: below 0rem
       linear-gradient(transparent, transparent, rgba(0, 0, 0, 0));
     transform: perspective(0px) rotateY(0deg);
-    margin-left: 1.3rem;
+    margin-left: 0.8rem;
     margin-bottom: 5rem;
     margin-top: 1rem;
     line-height: 1px;
@@ -230,10 +231,13 @@
     display: flex;
     position: absolute;
     /* background-color: red; */
-    top: 96.5%;
+    top: 97%;
     left: 39%;
     width: 8rem;
     height: 1rem;
+  }
+  .home {
+    position: fixed;
   }
 
   .searchBarHome {

@@ -243,6 +243,7 @@
     grid-template-columns: 1fr;
     display: grid;
     z-index: 99;
+    right: 20rem;
   }
   .filtersResponsive {
     grid-template-columns: 1fr;
@@ -252,6 +253,6 @@
   }
 
   .Titulo {
-    margin-left: 30%;
+    margin-left: 24%;
   }
 }

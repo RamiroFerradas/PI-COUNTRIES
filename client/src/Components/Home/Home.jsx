@@ -39,7 +39,7 @@ export default function Home() {
   return load ? (
     <Loader />
   ) : (
-    <div>
+    <div className={styles.bodyHome}>
       <div className={styles.navBarPrincipal}>
         <NavbarPrincipal />
       </div>
@@ -79,7 +79,6 @@ export default function Home() {
           <PaginadoActivitieCreate allCountries={allCountries.length} />
         </div>
       </div>
-      ;
     </div>
   );
 }

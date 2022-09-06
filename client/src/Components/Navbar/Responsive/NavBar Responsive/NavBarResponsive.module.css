@@ -15,6 +15,8 @@
 .menu {
   background: none;
   z-index: 99;
+  /* margin-right: 2rem; */
+  margin-left: 1.4rem;
 }
 
 .menu .menuButton {
