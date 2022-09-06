@@ -14,7 +14,7 @@ export default function NavbarFiltrosYOrdenamientos() {
     dispatch(getCountries());
   }, [dispatch]);
 
-  let handleClear = (e) => {
+  const handleClear = (e) => {
     document.getElementById("selectActivities").selectedIndex = 0;
     document.getElementById("selectContinent").selectedIndex = 0;
     document.getElementById("selectAz").selectedIndex = 0;

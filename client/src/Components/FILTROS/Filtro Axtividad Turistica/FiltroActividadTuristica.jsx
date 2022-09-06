@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../../../redux/actions/actions";
 import styles from "../Filtro Axtividad Turistica/FiltroActividadTuristica.module.css";
-import { AiOutlineClear } from "react-icons/ai";
 
 export default function FiltroActividadTuristica({
   setActualFilter,

@@ -1,7 +1,7 @@
 .home {
-  display: flex;
+  display: grid;
+  grid-template-areas: 1fr 1fr 1fr 1fr 1fr;
   position: relative;
-  flex-direction: column;
   /* height: 90%; */
   justify-content: space-around;
 }
@@ -36,7 +36,8 @@
   font-size: 1.5rem;
 }
 .container {
-  width: 70%;
+  width: 75%;
+  margin-right: 25rem;
   /* width: 90rem; */
   height: 44rem;
   -webkit-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
@@ -119,7 +120,6 @@
   font-family: "Mulish", sans-serif;
   left: 2rem;
   top: 6rem;
-
   color: white;
   text-align: center;
 }
@@ -133,7 +133,7 @@
     width: 64rem;
     left: 16rem;
     height: 31rem;
-    /* margin-right: 20rem; */
+    min-height: 350px;
   }
   .home {
     position: fixed;
@@ -163,5 +163,77 @@
   .cantPage {
     position: absolute;
     margin-right: 2rem;
+  }
+}
+@media screen and (max-width: 1290px) {
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pages {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .container {
+    margin: 2rem 1rem 5rem 1rem;
+  }
+
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .errorContainer h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .home {
+    grid-template-rows: 1fr;
+  }
+  .filterContainer {
+    display: none;
+  }
+  .container {
+    max-width: 24rem;
+    margin-left: 0rem;
+    left: 1rem;
+    height: 48rem;
+  }
+  .img {
+    justify-content: flex-start;
+    margin-right: 5rem;
+    -webkit-box-reflect: below 0rem
+      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0));
+    transform: perspective(0px) rotateY(0deg);
+    margin-left: 1.3rem;
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+    line-height: 1px;
+  }
+
+  .searchBarHome {
+    display: none;
+  }
+  .paginado {
+    display: none;
+  }
+  .cantPage {
+    display: none;
   }
 }

@@ -1,0 +1,65 @@
+.bodyNavResp {
+  /* background: #272727; */
+
+  z-index: 99;
+  max-height: 3.5rem;
+  height: 3.5rem;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  float: left;
+  position: absolute;
+  margin-left: 15rem;
+}
+
+.menu {
+  background: none;
+  z-index: 99;
+}
+
+.menu .menuButton {
+  color: #fddb3a;
+  background: none;
+  border: 1px solid #373636;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.opciones2 {
+  overflow: hidden;
+  float: right;
+  overflow: hidden;
+  background: #272727 !important;
+  text-decoration: none;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  position: fixed !important;
+}
+
+.navMenu .Aa {
+  color: #fddb3a;
+  display: flex;
+  flex-direction: column;
+  font-size: 2vh;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.navMenu .Aa2 {
+  color: #f6f4e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-size: 2vh;
+  text-transform: uppercase;
+  font-weight: 500;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

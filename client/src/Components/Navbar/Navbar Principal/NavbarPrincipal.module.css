@@ -2,8 +2,17 @@
   background: #272727;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  min-height: 2rem;
+  max-height: 3.5rem;
+  height: 3.5rem;
 }
+
+.navResponsive {
+  display: none;
+}
+.filtersResponsive {
+  display: none;
+}
+
 .navMenu {
   position: absolute;
   top: 1.5rem;
@@ -209,5 +218,40 @@
   }
   .navMenu {
     top: 1.2rem;
+  }
+}
+@media screen and (max-width: 1290px) {
+}
+
+@media screen and (max-width: 1180px) {
+}
+
+@media screen and (max-width: 930px) {
+}
+
+@media screen and (max-width: 780px) {
+}
+
+@media screen and (max-width: 580px) {
+  .bodyNav {
+    grid-template-columns: 1fr;
+  }
+  .navMenu {
+    display: none;
+  }
+  .navResponsive {
+    grid-template-columns: 1fr;
+    display: grid;
+    z-index: 99;
+  }
+  .filtersResponsive {
+    grid-template-columns: 1fr;
+    display: grid;
+    position: relative;
+    z-index: 98;
+  }
+
+  .Titulo {
+    margin-left: 30%;
   }
 }
