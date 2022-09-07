@@ -180,13 +180,46 @@
   transform: scale(0.8);
 }
 @media screen and (max-width: 1400px) {
-  /* .cajaActivitie {
-    width: 10rem;
-    height: 20rem;
-  } */
   .bodyActivities {
     float: left;
     margin-right: 1rem;
     margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cajaActivitie {
+    width: 16rem;
+    height: 18rem;
+    border-radius: 10px;
+    font-size: 0.6rem;
+    line-height: 4px;
+    margin-left: 3rem;
+  }
+  .divButtonDelete {
+    margin-top: 16rem;
+    margin-left: 5rem;
+  }
+  .ButtonDelete {
+    width: 100px;
+    height: 23px;
+  }
+  .ButtonDelete svg {
+    width: 10px;
+  }
+  .ButtonDelete .icon {
+    transform: translateX(80px);
+    height: 23px;
+    width: 10px;
+  }
+  .cajaActivitie .countriesAct img {
+    margin-bottom: 0.4rem;
+    height: 2.8rem;
+    width: 4.5rem;
+  }
+  .ButtonDelete .text {
+    transform: translateX(25px);
+    color: white;
+    font-weight: bold;
   }
 }
