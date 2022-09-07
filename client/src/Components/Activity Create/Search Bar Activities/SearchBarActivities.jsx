@@ -13,7 +13,6 @@ import { getCountries } from "../../../redux/actions/countries";
 export default function SearchBarActivities({
   input,
   setInput,
-  nameSearch,
   setErrors,
   validate,
   countriesA,
@@ -64,7 +63,7 @@ export default function SearchBarActivities({
         </form>
         <i className="fas fa-search"></i>
         <div className={styles.errorsSearch}>
-          {errors.name && !input.name && (
+          {!input.name && (
             <p>First you need to enter a name for your activity {`⚠`} </p>
           )}
         </div>

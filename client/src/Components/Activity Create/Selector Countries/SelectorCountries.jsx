@@ -33,7 +33,7 @@ export default function SelectorCountries({
   };
 
   return (
-    <div>
+    <div className={styles.h5}>
       <h5>Countries Selected:</h5>
       {!errors.name && input.name && input.countries.length ? (
         <div className={styles.bodySelector}>
@@ -87,8 +87,6 @@ export default function SelectorCountries({
                     <img
                       src={actualCountry.flag}
                       alt={`${actualCountry.countries} flag`}
-                      width="100px"
-                      height="100px"
                     />
                   </div>
                   <span>{actualCountry.id}</span>

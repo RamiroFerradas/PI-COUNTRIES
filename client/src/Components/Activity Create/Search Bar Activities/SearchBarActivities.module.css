@@ -14,11 +14,12 @@
   background-color: rgba(45, 43, 43, 0.495);
   backdrop-filter: blur(3px);
   overflow-x: scroll;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 10rem;
-  width: 11rem;
+  height: 10%;
+  width: 21%;
   overflow: hidden;
   float: left;
   flex-direction: column;
@@ -65,7 +66,7 @@
 
 .boxSearch {
   position: absolute;
-  width: 60rem;
+  width: 70%;
   margin: 12px 5px 30rem 13rem;
   --accent-color: #ffd52d;
   float: right;
@@ -194,10 +195,8 @@
   }
   .imageSearch img {
     font-size: 1px;
-    /* border-radius: 10px; */
     height: 5rem;
     width: 8rem;
-    /* margin-right: 2rem; */
     overflow: hidden;
     object-fit: cover;
     margin-bottom: 5px;
@@ -206,5 +205,32 @@
   .errorsSearch {
     margin-left: 7rem;
     margin-top: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .boxSearch {
+    width: 70%;
+    margin: -1rem 0px 50rem 3rem;
+  }
+  .errorsSearch {
+    margin-right: 20rem;
+    margin-left: 0rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  .cardSearch {
+    height: 6em;
+    width: 8rem;
+    margin-top: 2rem;
+    margin-left: 1.8rem;
+    /* margin-top: 14rem; */
+  }
+  .imageSearch img {
+    height: 4rem;
+    width: 7rem;
+  }
+  .prueba {
+    margin-top: 2rem;
   }
 }

@@ -82,6 +82,12 @@
   height: 11rem;
   overflow-x: scroll;
 }
+.SearchCountries {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; */
+}
 
 .inputForm {
   display: flex;
@@ -331,5 +337,27 @@
   .buttonCreated1:enabled,
   .buttonCreated2 {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .primeraColumna {
+    /* width: 22rem; */
+    margin-left: 21%;
+    margin-bottom: 1rem;
+  }
+  .countries {
+    width: 22rem;
+    height: 48rem;
+    margin-right: 2rem;
+  }
+  .h3 h3 {
+    font-size: 1.2rem;
+    width: 14rem;
+    margin-top: 0.3rem;
+    margin-left: 3.5rem;
+  }
+  .buttons {
+    margin-left: 8rem;
   }
 }
