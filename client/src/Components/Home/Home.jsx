@@ -12,6 +12,8 @@ import styles from "../Home/Home.module.css";
 import CantidadDePaginas from "../Cantidad De Paginas/CantidadDePaginas";
 import Searchbar from "../Searchbar/Searchbar";
 import PaginadoActivitieCreate from "../Activity Create/Paginado Activitie Create/PaginadoActivitieCreate";
+import FiltrosResponsive from "../Navbar/Responsive/Filtros Responsive/FiltrosResponsive";
+import NavBarResponsive from "../Navbar/Responsive/NavBar Responsive/NavBarResponsive";
 
 export default function Home() {
   let dispatch = useDispatch();
@@ -41,7 +43,12 @@ export default function Home() {
   ) : (
     <div className={styles.bodyHome}>
       <div className={styles.navBarPrincipal}>
-        <NavbarPrincipal />
+        <div>
+          <NavbarPrincipal />
+        </div>
+        <div className={styles.filtersResponsive}>
+          <FiltrosResponsive />
+        </div>
       </div>
       <div className={styles.home}>
         <div className={styles.filterContainer}>

@@ -5,6 +5,12 @@
   /* height: 90%; */
   justify-content: space-around;
 }
+.filtersResponsive {
+  display: none;
+}
+.navResponsive2 {
+  display: none;
+}
 .img {
   width: 20%;
   height: 10rem;
@@ -128,6 +134,9 @@
 }
 
 @media screen and (max-width: 1400px) {
+  .filtersResponsive {
+    display: none;
+  }
   .container {
     margin: 0rem 2rem 5rem 3rem;
     width: 64rem;
@@ -203,6 +212,17 @@
 }
 
 @media screen and (max-width: 450px) {
+  .filtersResponsive {
+    display: grid;
+    z-index: 9;
+  }
+
+  .navBarPrincipal {
+    position: static;
+    display: grid;
+    z-index: 999;
+  }
+
   .home {
     grid-template-rows: 1fr;
     position: fixed;
@@ -214,7 +234,8 @@
     max-width: 22rem;
     /* margin-left: 1rem; */
     left: 0.8rem;
-    height: 35em;
+    height: 38rem;
+    margin-top: 0rem;
   }
   .img {
     justify-content: flex-start;

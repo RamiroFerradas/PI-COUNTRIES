@@ -242,17 +242,21 @@
   .navResponsive {
     grid-template-columns: 1fr;
     display: grid;
-    z-index: 99;
+    position: static;
+    z-index: 999;
     right: 20rem;
   }
-  .filtersResponsive {
+  /* .filtersResponsive {
     grid-template-columns: 1fr;
     display: grid;
-    position: relative;
-    z-index: 98;
-  }
+    position: static;
+    z-index: 10;
+  } */
 
   .Titulo {
     margin-left: 24%;
+  }
+  .divTitulo {
+    margin-left: 10%;
   }
 }

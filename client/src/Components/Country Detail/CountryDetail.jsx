@@ -10,6 +10,7 @@ import MapComponent from "./Map/MyComponent";
 import styles from "../Country Detail/CountryDetail.module.css";
 import NavbarPrincipal from "../Navbar/Navbar Principal/NavbarPrincipal";
 import Loader from "../Loader/Loader";
+import NavBarResponsive from "../Navbar/Responsive/NavBar Responsive/NavBarResponsive";
 
 export default function CountryDetail() {
   let navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function CountryDetail() {
       </div>
 
       <div className={styles.bodyDetails}>
-        <div>
+        <div className={styles.buttonBack}>
           <button
             className={styles.buttonCreated1}
             onClick={(e) => cleanAndBack(e)}

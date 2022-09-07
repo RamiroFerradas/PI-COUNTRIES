@@ -35,7 +35,8 @@
   position: absolute;
   margin-left: 1.5rem;
   float: left;
-  /* background-color: red; */
+  position: absolute;
+  z-index: -20 !important; /* background-color: red; */
 }
 
 .opciones2 {

@@ -11,13 +11,15 @@ export default function NavbarPrincipal() {
         <div className={styles.navResponsive}>
           <NavBarResponsive />
         </div>
-        <NavLink to="/home" className={styles.linkTitulo}>
-          <h1>Countries App</h1>
-        </NavLink>
+        <div className={styles.divTitulo}>
+          <NavLink to="/home" className={styles.linkTitulo}>
+            <h1>Countries App</h1>
+          </NavLink>
+        </div>
       </div>
-      <div className={styles.filtersResponsive}>
+      {/* <div className={styles.filtersResponsive}>
         <FiltrosResponsive />
-      </div>
+      </div> */}
 
       <div>
         <nav className={styles.navMenu}>

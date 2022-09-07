@@ -25,17 +25,19 @@ export default function SearchbarResponsive() {
 
   return (
     <div className={styles.boxSearch}>
-      <form name="search" onSubmit={(e) => hanldeSubmit(e)}>
-        <input
-          type="text"
-          className={styles.inputSearch}
-          name="txt"
-          placeholder="Search Countrie . . . "
-          onChange={(e) => handleChange(e)}
-        ></input>
-      </form>
-      {/* <i className={styles.Isearch}></i> */}
-      <i className="fas fa-search"></i>
+      <div>
+        <form name="search" onSubmit={(e) => hanldeSubmit(e)}>
+          <input
+            type="text"
+            className={styles.inputSearch}
+            name="txt"
+            placeholder="Search Countrie . . . "
+            onChange={(e) => handleChange(e)}
+          ></input>
+        </form>
+        {/* <i className={styles.Isearch}></i> */}
+        <i className="fas fa-search"></i>
+      </div>
     </div>
   );
 }
