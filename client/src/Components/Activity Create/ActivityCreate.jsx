@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useState } from "react";
 import styles from "../Activity Create/ActivityCreate.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,8 @@ import { getActivities } from "../../redux/actions/activities";
 import SearchBarActivities from "./Search Bar Activities/SearchBarActivities";
 import SelectorCountries from "./Selector Countries/SelectorCountries";
 import PaginadoActivitieCreate from "./Paginado Activitie Create/PaginadoActivitieCreate";
+import { useLocalStorage } from "../../Hooks/useLocalStorage";
+// import { useLocalStorage } from "../../Hooks/useLocalStorage";
 
 export default function ActivityCreate() {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ export default function ActivityCreate() {
     flag: [],
     countries: [],
   });
+  const [text, setText] = useLocalStorage("text", "");
 
   const handleChangeInput = (e) => {
     setInput({
@@ -49,6 +52,7 @@ export default function ActivityCreate() {
         [e.target.name]: e.target.value,
       })
     );
+    setText(e.target.value);
   };
 
   const handlerInputChek = (e) => {
@@ -189,6 +193,7 @@ export default function ActivityCreate() {
     document.getElementsByClassName("form-check-input")[2].checked = false;
     document.getElementsByClassName("form-check-input")[3].checked = false;
   };
+  // const [text, setText] = useLocalStorage("text", "");
 
   return (
     <div>
@@ -209,6 +214,15 @@ export default function ActivityCreate() {
       <div>
         <div className={styles.primeraColumna}>
           <form action="">
+            {/* <div>
+              <Fragment>
+                <textarea
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Holaaaaaa"
+                ></textarea>
+              </Fragment>
+            </div> */}
             <div className={styles.inputForm}>
               <input
                 className={
@@ -219,6 +233,7 @@ export default function ActivityCreate() {
                 autoComplete="off"
                 onChange={(e) => handleChangeInput(e)}
                 value={input.name}
+                id={text}
                 name="name"
               />
               <div>
