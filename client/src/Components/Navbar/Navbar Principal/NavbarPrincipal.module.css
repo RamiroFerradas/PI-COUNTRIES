@@ -1,4 +1,5 @@
 .bodyNav {
+  display: flex;
   background: #272727;
   font-family: "Montserrat", sans-serif;
   position: relative;
@@ -25,6 +26,7 @@
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  width: 50vw;
 }
 .linkTitulo:hover,
 .linkTitulo {
@@ -227,36 +229,60 @@
 }
 
 @media screen and (max-width: 930px) {
+  /* .navResponsive {
+    display: flex;
+  }
+  .navMenu {
+    display: none;
+  } */
 }
+
+/* @media screen and (max-width: 780px) {
+  .navResponsive {
+    background: #272727;
+    backdrop-filter: (1px);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-left: 48%;
+    z-index: 999;
+  }
+} */
 
 @media screen and (max-width: 780px) {
-}
-
-@media screen and (max-width: 580px) {
   .bodyNav {
+    display: grid;
     grid-template-columns: 1fr;
   }
   .navMenu {
     display: none;
   }
   .navResponsive {
-    grid-template-columns: 1fr;
-    display: grid;
-    position: static;
+    background: #272727;
+    backdrop-filter: (1px);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    /* margin-left: 50%; */
+    margin-left: 49vw;
     z-index: 999;
-    right: 20rem;
   }
-  /* .filtersResponsive {
-    grid-template-columns: 1fr;
-    display: grid;
-    position: static;
-    z-index: 10;
-  } */
 
   .Titulo {
-    margin-left: 24%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 100;
+    /* margin-left: 24%; */
   }
   .divTitulo {
-    margin-left: 10%;
+    /* margin-left: 10%; */
+  }
+}
+@media screen and (max-width: 580px) {
+  .navResponsive {
+    margin-left: 48vw;
   }
 }

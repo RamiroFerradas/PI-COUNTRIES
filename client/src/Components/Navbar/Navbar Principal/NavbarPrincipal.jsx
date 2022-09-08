@@ -8,10 +8,10 @@ export default function NavbarPrincipal() {
   return (
     <div className={styles.bodyNav}>
       <div className={styles.Titulo}>
-        <div className={styles.navResponsive}>
-          <NavBarResponsive />
-        </div>
         <div className={styles.divTitulo}>
+          <div className={styles.navResponsive}>
+            <NavBarResponsive />
+          </div>
           <NavLink to="/home" className={styles.linkTitulo}>
             <h1>Countries App</h1>
           </NavLink>

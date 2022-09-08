@@ -1,15 +1,16 @@
 .bodyNavResp {
   /* background: #272727; */
-  display: grid;
+  /* display: grid;
   grid-template-rows: 1fr;
   z-index: 99;
-  max-height: 3.5rem;
-  height: 3.5rem;
   font-family: "Montserrat", sans-serif;
   position: absolute;
   float: left;
   position: absolute;
-  margin-left: 15rem;
+  margin-left: 15rem; */
+  font-family: "Montserrat", sans-serif;
+  max-height: 3.5rem;
+  height: 3.5rem;
 }
 
 .menu {

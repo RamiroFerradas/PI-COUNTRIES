@@ -36,7 +36,9 @@ export default function PaginadoActivitieCreate({ allCountries }) {
           </button>
         );
       })} */}
-      {`  ${currentPage}/${totalPages}  `}
+      <label
+        className={styles.numeracion}
+      >{`  ${currentPage}/${totalPages}  `}</label>
       <button
         className={styles.buttonPaged2}
         disabled={currentPage === totalPages}

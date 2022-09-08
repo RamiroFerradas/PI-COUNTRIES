@@ -1,7 +1,7 @@
 .bodyNavResp {
+  display: grid;
   background: #272727;
   backdrop-filter: (1px);
-  display: grid;
   grid-template-rows: 1fr;
   align-items: center;
   justify-content: flex-end;
@@ -10,13 +10,12 @@
   height: 3.5rem;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  max-height: 3.5rem;
-  height: 3.5rem;
+  /* margin-left: 1rem; */
 }
 
 .menu {
-  background: none;
-  margin-right: 0.5rem;
+  /* background: red; */
+  margin-left: 23.5em;
 }
 
 .menu .menuButton {
@@ -31,7 +30,7 @@
   color: #fddb3a;
 }
 .divSearch {
-  width: 18rem;
+  width: 80vw;
   position: absolute;
   margin-left: 1.5rem;
   float: left;
