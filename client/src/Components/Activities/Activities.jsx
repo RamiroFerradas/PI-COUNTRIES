@@ -22,11 +22,10 @@ export default function Activities() {
     <Loader />
   ) : (
     <div>
-      <div className={styles.navYButton}>
-        <div className={styles.navbarDetails}>
-          <NavbarPrincipal />
-        </div>
+      <div className={styles.navbarDetails}>
+        <NavbarPrincipal />
       </div>
+
       <div>
         {activities?.map((ele) => {
           return (

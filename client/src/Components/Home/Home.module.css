@@ -43,8 +43,6 @@
 }
 .container {
   width: 75%;
-  /* margin-right: 25rem; */
-  /* width: 90rem; */
   height: 44rem;
   -webkit-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
   -moz-box-shadow: 0px 0px 18px 1px rgba(255, 238, 16, 1);
@@ -284,7 +282,7 @@
     position: absolute;
     /* background-color: red; */
     top: 112%;
-    left: 46%;
+    left: 42%;
     width: 100vw;
     height: 1rem;
     z-index: 40;

@@ -188,6 +188,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .navbarDetails {
+    display: flex;
+  }
+  .cajaCountriesPP {
+    height: 8rem;
+  }
   .cajaActivitie {
     width: 16rem;
     height: 18rem;

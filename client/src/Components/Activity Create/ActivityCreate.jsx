@@ -115,41 +115,40 @@ export default function ActivityCreate() {
     //   errors.name = "This country already has the selected activity ";
     // }
 
-    if (input.name === "") errors.name = "Tu actividad necesita un nombre!";
+    if (input.name === "") errors.name = "Your activity needs a name!";
 
     if (/[^\w\s]/.test(input.name))
-      errors.name =
-        "El nombre de tu actividad no puede contener caracteres especiales";
+      errors.name = "Your activity name cannot contain special characters";
     if (/[1-9]/.test(input.name))
-      errors.name = "El nombre de tu actividad no puede contener numeros";
+      errors.name = "The name of your activity cannot contain numbers";
 
     //difficulty
     if (input.difficulty === 0)
-      errors.difficulty = "La dificultad debe ser mayor a 0!";
+      errors.difficulty = "Difficulty must be greater than 0!";
     if (
       input.difficulty > 10 ||
       input.difficulty < 1 ||
       !/\d/g.test(input.difficulty)
     )
-      errors.difficulty = "El valor debe estar entre 1 y 10";
+      errors.difficulty = "The value must be between 1 and 10";
 
     //duration
     if (input.duration === 0)
-      errors.duration = "La duration debe ser mayor a 0!";
+      errors.duration = "The duration must be greater than 0!";
     if (
       input.duration > 24 ||
       input.duration < 1 ||
       !/\d/g.test(input.duration)
     )
-      errors.duration = "El valor debe estar entre 1 y 24";
+      errors.duration = "The value must be between 1 and 24";
 
     //Season
     if (!input.season?.length)
-      errors.season = "Tu actividad necesita una temporada al menos!";
+      errors.season = "Your activity needs a season at least!";
 
     // //genres
     if (!input.countries?.length)
-      errors.countries = "Tu actividad necesita un countrie al menos!";
+      errors.countries = "Your activity needs at least one country!";
 
     return errors;
   }

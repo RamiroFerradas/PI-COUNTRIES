@@ -222,32 +222,6 @@
     top: 1.2rem;
   }
 }
-@media screen and (max-width: 1290px) {
-}
-
-@media screen and (max-width: 1180px) {
-}
-
-@media screen and (max-width: 930px) {
-  /* .navResponsive {
-    display: flex;
-  }
-  .navMenu {
-    display: none;
-  } */
-}
-
-/* @media screen and (max-width: 780px) {
-  .navResponsive {
-    background: #272727;
-    backdrop-filter: (1px);
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    margin-left: 48%;
-    z-index: 999;
-  }
-} */
 
 @media screen and (max-width: 780px) {
   .bodyNav {
@@ -258,7 +232,6 @@
     display: none;
   }
   .navResponsive {
-    background: #272727;
     backdrop-filter: (1px);
     display: flex;
     flex-direction: row;
